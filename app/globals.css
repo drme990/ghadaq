@@ -1,0 +1,365 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fcfcfa;
+  --foreground: #000f2f;
+  --secondary: #707070;
+  --success: #ffa401;
+  --error: #ff2d24;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --stroke: #202d47;
+  --card-bg: #e5e7eb;
+  --radius: 14px;
+  --marquee-bg: rgba(252, 252, 250, 0.6);
+  --grid-bg-base-color: #e6000000;
+  --grid-bg-liner-gradient:
+    linear-gradient(rgba(0, 15, 47, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 15, 47, 0.04) 1px, transparent 1px);
+}
+
+.dark {
+  --background: #134d37;
+  --foreground: #fcfcfa;
+  --secondary: #a9adb7;
+  --success: #ffa401;
+  --error: #ff2d24;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+  --stroke: #1e5e42;
+  --card-bg: #0d3a29;
+  --marquee-bg: rgba(19, 77, 55, 0.6);
+  --grid-bg-base-color: #e6000000;
+  --grid-bg-liner-gradient:
+    linear-gradient(rgba(252, 252, 250, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(252, 252, 250, 0.04) 1px, transparent 1px);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-stroke: var(--stroke);
+  --color-card-bg: var(--card-bg);
+  --radius-site: var(--radius);
+  --border-stroke: var(--stroke);
+
+  --font-family-poppins: var(--font-poppins);
+  --font-family-expo-arabic: var(--font-expo-arabic);
+  --font-family-satoshi: var(--font-satoshi);
+
+  /* Spacing tokens inspired by 7D Studio design */
+  --spacing-section-y: 2rem;
+  --spacing-section-y-md: 3rem;
+  --spacing-section-x: 1rem;
+  --spacing-section-x-md: 2rem;
+  --spacing-section-gap: 1.25rem;
+  --spacing-content-gap: 1.5rem;
+
+  /* Font sizes */
+  --text-site: 2.125rem;
+  --text-site-md: 3.438rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  /* Line heights */
+  --leading-site: 1.1;
+  --leading-site-md: 1.5;
+  --leading-relaxed: 1.625;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-expo-arabic {
+  font-family: var(--font-expo-arabic);
+}
+
+.font-satoshi {
+  font-family: var(--font-satoshi);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: clip;
+}
+
+.grid-bg {
+  background-color: var(--grid-bg-base-color);
+  background-image: var(--grid-bg-liner-gradient);
+  background-size: 68px 68px;
+  background-position: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  scroll-margin-top: 2.5rem;
+  overflow-x: clip;
+}
+
+.gbf {
+  position: relative;
+  --gbf-size: 200px;
+  --gbf-x: 50%;
+  --gbf-y: 50%;
+}
+
+.gbf::before {
+  content: '';
+  position: absolute;
+  left: var(--gbf-x);
+  top: var(--gbf-y);
+  width: var(--gbf-size);
+  height: var(--gbf-size);
+  background: radial-gradient(circle, #ffa401 0%, #0d3a298a 54%);
+  transform: translate(-50%, -50%);
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Blur variants with different sizes and positions */
+.gbf-sm {
+  --gbf-size: 150px;
+}
+
+.gbf-md {
+  --gbf-size: 250px;
+}
+
+.gbf-lg {
+  --gbf-size: 350px;
+}
+
+.gbf-top {
+  --gbf-y: 0%;
+}
+
+.gbf-bottom {
+  --gbf-y: 100%;
+}
+
+.gbf-left {
+  --gbf-x: 30%;
+}
+
+.gbf-right {
+  --gbf-x: 70%;
+}
+
+/* Custom Scrollbar Styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--stroke) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--stroke);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--success);
+}
+
+/* Hide number input arrows/spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Gradient text class */
+.g-text {
+  background: linear-gradient(to right, #ffa401, #ffc001, #ffd84d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Quill Editor Theme Overrides */
+.quill-wrapper .ql-toolbar {
+  border: 1px solid var(--stroke) !important;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--background);
+}
+
+.quill-wrapper .ql-container {
+  border: 1px solid var(--stroke) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--background);
+  font-family: inherit;
+  font-size: 0.925rem;
+  min-height: 200px;
+  color: var(--foreground);
+}
+
+.quill-wrapper .ql-editor {
+  min-height: 200px;
+  color: var(--foreground);
+  line-height: 1.7;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  white-space: pre-wrap; /* keep normal wrapping */
+}
+
+.quill-wrapper .ql-editor.ql-blank::before {
+  color: var(--secondary);
+  opacity: 0.6;
+  font-style: normal;
+}
+
+.quill-wrapper .ql-toolbar button,
+.quill-wrapper .ql-toolbar .ql-picker-label {
+  color: var(--foreground) !important;
+}
+
+.quill-wrapper .ql-toolbar button:hover,
+.quill-wrapper .ql-toolbar .ql-picker-label:hover,
+.quill-wrapper .ql-toolbar button.ql-active,
+.quill-wrapper .ql-toolbar .ql-picker-label.ql-active {
+  color: var(--success) !important;
+}
+
+.quill-wrapper .ql-toolbar .ql-stroke {
+  stroke: var(--foreground) !important;
+}
+
+.quill-wrapper .ql-toolbar button:hover .ql-stroke,
+.quill-wrapper .ql-toolbar button.ql-active .ql-stroke,
+.quill-wrapper .ql-toolbar .ql-picker-label:hover .ql-stroke {
+  stroke: var(--success) !important;
+}
+
+.quill-wrapper .ql-toolbar .ql-fill {
+  fill: var(--foreground) !important;
+}
+
+.quill-wrapper .ql-toolbar button:hover .ql-fill,
+.quill-wrapper .ql-toolbar button.ql-active .ql-fill {
+  fill: var(--success) !important;
+}
+
+.quill-wrapper .ql-toolbar .ql-picker-options {
+  background: var(--background) !important;
+  border-color: var(--stroke) !important;
+  border-radius: 8px;
+}
+
+.quill-wrapper .ql-toolbar .ql-picker-item {
+  color: var(--foreground) !important;
+}
+
+.quill-wrapper .ql-toolbar .ql-picker-item:hover {
+  color: var(--success) !important;
+}
+
+.quill-wrapper .ql-container:focus-within {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 2px rgba(255, 164, 1, 0.2);
+}
+
+/* Quill content display on product details page */
+.product-content {
+  white-space: normal;
+  word-break: keep-all; /* Never break normal words */
+  overflow-wrap: anywhere; /* Only break if absolutely forced */
+}
+
+.product-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-content h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-content p {
+  color: var(--secondary);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 0.25rem;
+}
+
+.product-content ul,
+.product-content ol {
+  padding-inline-start: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-content ul li,
+.product-content ol li {
+  color: var(--secondary);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.product-content strong {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.product-content a {
+  color: var(--success);
+  text-decoration: underline;
+}
+
+.product-content a:hover {
+  opacity: 0.8;
+}

@@ -21,7 +21,7 @@ export function StatisticsCard({
   label: string;
 }) {
   return (
-    <div className="flex items-center gap-4 w-full rounded-xl border border-stroke bg-card-bg/30 backdrop-blur-sm p-4">
+    <div className="flex items-center gap-4 w-full rounded-xl border border-stroke bg-card-bg backdrop-blur-sm p-4">
       <div className="relative w-16 h-16 shrink-0">
         <Image
           src={icon}

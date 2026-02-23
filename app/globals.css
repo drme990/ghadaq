@@ -18,18 +18,19 @@
   --grid-bg-liner-gradient:
     linear-gradient(rgba(0, 15, 47, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 15, 47, 0.04) 1px, transparent 1px);
+  --primary-gradient: linear-gradient(to right, #ffa401, #d3b81e, #ffc001);
 }
 
 .dark {
   --background: #134d37;
   --foreground: #fcfcfa;
-  --secondary: #a9adb7;
+  --secondary: #cccccc;
   --success: #ffa401;
   --error: #ff2d24;
   --warning: #f59e0b;
   --info: #3b82f6;
   --stroke: #1e5e42;
-  --card-bg: #0d3a29;
+  --card-bg: #134d37;
   --marquee-bg: rgba(19, 77, 55, 0.6);
   --grid-bg-base-color: #e6000000;
   --grid-bg-liner-gradient:

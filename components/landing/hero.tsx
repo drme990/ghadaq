@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useTranslations('landing.hero');
   const tc = useTranslations('common.buttons');
   return (
-    <section className="min-h-[85vh] bg-background flex items-center justify-center px-4 py-20">
+    <section className="min-h-[80vh] bg-background flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-4xl text-center space-y-10 gbf gbf-lg">
         <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight tracking-tight">
           {t('title')}

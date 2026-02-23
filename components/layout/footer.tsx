@@ -81,21 +81,21 @@ export default function Footer() {
             <h3 className="font-semibold text-lg">{tf('contactUsTitle')}</h3>
             <div className="flex justify-start gap-6">
               <Link
-                href="https://www.facebook.com/Manasik990"
+                href="https://www.facebook.com/ghadaq990"
                 className="hover:text-success transition-colors"
                 aria-label="Facebook"
               >
                 <FiFacebook size={28} />
               </Link>
               <Link
-                href="https://www.tiktok.com/@manasik2990"
+                href="https://www.tiktok.com/@ghadaq990"
                 className="hover:text-success transition-colors"
                 aria-label="TikTok"
               >
                 <PiTiktokLogo size={28} />
               </Link>
               <Link
-                href="https://www.instagram.com/manasik990/"
+                href="https://www.instagram.com/ghadaq990"
                 className="hover:text-success transition-colors"
                 aria-label="Instagram"
               >

@@ -1,0 +1,940 @@
+{
+  "common": {
+    "buttons": {
+      "orderNow": "Order Now",
+      "discoverMore": "Discover More",
+      "calculateNow": "Calculate Now",
+      "backToHome": "Back to Home",
+      "startsFrom": "Starts from"
+    },
+    "navigation": {
+      "home": "Home",
+      "ourWorks": "Our Works",
+      "workSteps": "Work Steps",
+      "products": "Our Products",
+      "whyUs": "Why Choose Us",
+      "calcAqeqa": "Aqiqah Calculator",
+      "faq": "FAQ",
+      "contactUs": "Contact Us",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "settings": {
+      "language": "Language",
+      "theme": "Theme",
+      "currency": "Currency"
+    },
+    "footer": {
+      "companyName": "Ghadq Association",
+      "description": "We perform on your behalf with legal proxy",
+      "rights": "All rights reserved",
+      "quickLinks": "Quick Links",
+      "contactUsTitle": "Contact Us",
+      "contactInfo": "Contact Information",
+      "emailLabel": "Email Address",
+      "phoneLabel": "Phone Number",
+      "benefits": "Benefits of Choosing Us",
+      "poweredBy": "Powered by"
+    },
+    "status": {
+      "available": "Available",
+      "unavailable": "Unavailable",
+      "noImage": "No image available"
+    },
+    "messages": {
+      "noProductsAvailable": "No products available at the moment"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "From a Simple Intention to Great Deeds",
+      "subtitle": "Your Proxies in Doing Good",
+      "description": "At Ghadq Association, we transform your sincere intention into real good deeds. We perform Umrah and Hajj by proxy, Aqiqah, vows, charity, and execute well drilling and water connections. Here you find Islamic compliance, trustworthy execution, and professional documentation that brings peace of mind."
+    },
+    "ourWorks": {
+      "upTitle": "Our Works",
+      "title": "The Impact Remains",
+      "subtitle": "A glimpse of our experience in performing rituals by legal proxy.",
+      "stats": {
+        "countries": {
+          "value": "+10",
+          "label": "Countries"
+        },
+        "completedWorks": {
+          "value": "+17K",
+          "label": "Completed Works"
+        },
+        "satisfaction": {
+          "value": "98%",
+          "label": "Satisfaction Rate"
+        },
+        "happyClients": {
+          "value": "+50K",
+          "label": "Happy Clients"
+        }
+      }
+    },
+    "workSteps": {
+      "upTitle": "Work Steps",
+      "title": "How Do We Perform the Rituals for You?",
+      "subtitle": "From booking to execution with ease",
+      "steps": {
+        "step1": {
+          "title": "Choose the Service",
+          "description": "Select the type of ritual or ceremony you want us to perform on your behalf."
+        },
+        "step2": {
+          "title": "Send Information",
+          "description": "Send the name and required information so the execution is done correctly and according to Islamic law."
+        },
+        "step3": {
+          "title": "Receive Documentation",
+          "description": "Receive professional and comprehensive documentation of the work to give you peace of mind."
+        }
+      }
+    },
+    "whyUs": {
+      "upTitle": "Benefits of Choosing Us",
+      "title": "Why Choose Us?",
+      "subtitle": "We promise you not just a passing service, but excellent work you'll be proud of in this life and the hereafter.",
+      "benefit1": {
+        "title": "Trained Team",
+        "description": "Scholars, performers, and execution workers, each in their place, performing the work with highest efficiency and as it should be."
+      },
+      "benefit2": {
+        "title": "High Quality",
+        "description": "We fulfill Islamic requirements for rituals, choose sound sacrificial animals, and provide unique execution quality."
+      },
+      "benefit3": {
+        "title": "Work from the Heart",
+        "description": "We execute the work with sincere intention and devotion because you are our family and we know we present this work before Allah first."
+      },
+      "benefit4": {
+        "title": "Fast Execution",
+        "description": "Receive slaughter documentation in less than 24 hours, and we execute other works with amazing speed too."
+      },
+      "benefit5": {
+        "title": "Competitive Prices",
+        "description": "Excellent, clear, and affordable pricing for everyone, without exaggeration or hidden costs."
+      },
+      "benefit6": {
+        "title": "Complete Satisfaction",
+        "description": "We work on the required ritual professionally to earn your 100% satisfaction."
+      }
+    },
+    "testimonials": {
+      "upTitle": "Words That Embody Trust",
+      "title": "Listen to What Our Clients Say About Us",
+      "subtitle": "Trust Continues with Your Presence",
+      "sampleFeedback1": "May Allah reward you with goodness. I have actually worked with them — there is credibility and professional speed in execution. This is a testimony before Allah Almighty. May Allah accept from us and from you our righteous deeds.",
+      "sampleName1": "سيد محمد",
+      "sampleFeedback2": "Respectful and honest people, keen to complete your request in the best possible way. Honestly, they made me very happy and finished everything very quickly.",
+      "sampleName2": "Mohamed Adel M",
+      "sampleFeedback3": "Very respectful people and the execution was at an unexpectedly fast speed. The next day they were slaughtering and sent me the videos and photos. God willing, it won't be the last time I deal with them.",
+      "sampleName3": "Mona Fawzy",
+      "sampleFeedback4": "May Allah bless them for their credibility and speed in slaughtering and sending all the details. God willing, it won't be the last time I deal with them.",
+      "sampleName4": "Yasmin S. Afifi",
+      "sampleFeedback5": "Honestly, God, they are the pinnacle of trustworthiness, credibility, timing, and the people I chose, they didn't delay at all, may God bless you and benefit you, and may God reward you with the best reward.",
+      "sampleName5": "Mohamed Khater",
+      "sampleFeedback6": "May God reward you with goodness, I dealt with them twice and honestly, they are the pinnacle of commitment.",
+      "sampleName6": "ABu Baker ABu Elazaim",
+      "sampleFeedback7": "Honestly, very very respectful people, may God bless them, and quick execution for my children's aqiqah, may God accept from us and from them righteous deeds, O Lord of the worlds.",
+      "sampleName7": "Mohamed Baz",
+      "sampleFeedback8": "May God reward you with goodness, indeed credibility, professionalism, and speed in execution.",
+      "sampleName8": "Mohamed Gamal",
+      "sampleFeedback9": "In the name of God, as God willed, may God bless you and reward you with goodness, speed in execution, credibility, and trust, and God willing, not the last deal, and may God reward you with the best reward.",
+      "sampleName9": "Mohamed Ashraf",
+      "sampleFeedback10": "The truth is, honest people, and they executed within two days, may God bless them and reward them with goodness.",
+      "sampleName10": "Aya",
+      "sampleFeedback11": "May God bless you, O Lord, an excellent page, and I advise anyone who wants to do aqiqah or charity to contact them.",
+      "sampleName11": "Mohamed Abd Elatef",
+      "sampleFeedback12": "May God reward you with goodness for your trustworthiness and speed of execution, may God bless you and accept from us and from you.",
+      "sampleName12": "Ahmed Gamal",
+      "sampleFeedback13": "Taste, seriousness, respect, and prices, there is nothing better than this, a true testimony.",
+      "sampleName13": "Jomana Kareem",
+      "sampleFeedback14": "People of the utmost taste and manners, honest, and their appointments are excellent, may God reward you with all goodness.",
+      "sampleName14": "Adham Abdulmajeed"
+    },
+    "products": {
+      "upTitle": "Our Products",
+      "title": "Flexible Prices to Suit All Budgets",
+      "subtitle": "Excellent, clear, and affordable pricing for everyone.",
+      "buttons": {
+        "viewAll": "View All Products"
+      }
+    },
+    "faq": {
+      "upTitle": "Frequently Asked Questions",
+      "title": "Most Common Questions",
+      "subtitle": "Get clear and transparent answers to all the questions you need about our services, plans, and work steps. If you have any additional inquiries, don't hesitate to contact us!",
+      "questions": {
+        "question1": {
+          "question": "Are you a certified foundation?",
+          "answer": "Yes, Ghadq Association is certified by Meta with the blue badge, and this certification comes after verifying identity documents and reviewing activity and executions."
+        },
+        "question2": {
+          "question": "Are you a charity or for-profit entity?",
+          "answer": "We are a commercial entity that executes rituals and charitable services by proxy with (very small) profit margins to cover administrative expenses and ensure business continuity. We adhere to Islamic rulings and announce costs clearly without any ambiguity."
+        },
+        "question3": {
+          "question": "How is execution done by legal proxy?",
+          "answer": "You authorize us to perform the ritual on your behalf. The intention and naming are in your name, and execution is done as if you were present yourself."
+        },
+        "question4": {
+          "question": "Who executes the work?",
+          "answer": "A trained team of: Scholars for slaughter, Performers for Umrah and Hajj by proxy, Specialized workers for wells and water connections. Each person specialized in their work."
+        },
+        "question5": {
+          "question": "Is execution compliant with Islamic requirements?",
+          "answer": "Yes. We adhere to Islamic requirements in slaughter, timing, naming, and method of execution."
+        },
+        "question6": {
+          "question": "Is there documentation?",
+          "answer": "Yes, documentation includes all stages as if you were with us. Aqiqah/Vows/Charity: slaughter video in your name + kitchen, preparation and distribution video + photos. Umrah by proxy: video of all Umrah rituals from start to finish. Wells and water connections: execution documentation + beneficiary family data after execution."
+        },
+        "question7": {
+          "question": "When do I receive documentation for Aqiqah, vows, charity, or Umrah by proxy?",
+          "answer": "Documentation reaches you within 24 hours. In cases of pressure or emergencies: maximum two days."
+        },
+        "question8": {
+          "question": "When do I receive documentation for water connection or well?",
+          "answer": "Connections and wells take longer, from two weeks to two months depending on execution nature."
+        },
+        "question9": {
+          "question": "What are the best Aqiqahs, vows, and charities?",
+          "answer": "The best is what brings greatest benefit and kindness, and what aligns with Sunnah, like the male ram. Because the Prophet ﷺ slaughtered a ram for Hassan and Hussein, and it was the ransom of Prophet Ismail peace be upon him."
+        },
+        "question10": {
+          "question": "What are the weights of sacrificial animals?",
+          "answer": "In Tanzania and Malawi, dealing is by head not weight. Therefore estimation is better based on number of beneficiaries (approximate numbers): Ram: reaches 36 people, Sheep: reaches 32 people, Large sheep: reaches 45 people, Goat: reaches 18 people, Young goat: reaches 22 people, Calf: reaches 180 people. Dividing the animal into small pieces can increase the number but meals become non-filling, and satiety and kindness are our priority at Ghadq Association."
+        },
+        "question11": {
+          "question": "For whom is Umrah and Hajj by proxy permissible?",
+          "answer": "Permissible for the deceased, and permissible for the living who are permanently unable with no hope of recovery. Not permissible for the living who can perform it themselves."
+        },
+        "question12": {
+          "question": "What is the Islamic evidence for permissibility of Umrah and Hajj by proxy?",
+          "answer": "This is established in authentic Sunnah from Abdullah ibn Abbas may Allah be pleased with them: that a woman from Khath'am said: O Messenger of Allah, Allah's obligation on His servants regarding Hajj has come upon my father as an old man unable to stay on the mount, should I perform Hajj on his behalf? The Prophet ﷺ said: Perform Hajj on his behalf. Narrated by Bukhari and Muslim. Majority of scholars agreed on its permissibility, and they analogized Umrah to Hajj in permissibility of deputization. Most famous who issued fatwa on this: Ibn Baz, Ibn Uthaymeen, An-Nawawi, Ibn Qudamah, Ash-Shafi'i, and Ahmad ibn Hanbal"
+        },
+        "question13": {
+          "question": "Does the reward of Umrah or Hajj by proxy reach the deceased?",
+          "answer": "Yes, the reward reaches the deceased without dispute, and they benefit from it God willing."
+        },
+        "question14": {
+          "question": "Is it permissible to perform Umrah or Hajj by proxy more than once for the same person?",
+          "answer": "Yes, it is permissible to repeat it as long as the inability continues or in case of death."
+        }
+      }
+    },
+    "calcAqeqa": {
+      "title": "Calculate Your Aqiqah Easily and Confidently",
+      "description": "The Aqiqah calculator helps you know the exact number of required sacrifices accurately, according to Islamic rulings, so you can perform your ritual correctly and clearly from the first step.",
+      "button": "Calculate Now"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "description": "Browse all Ghadq Association products - Umrah on behalf, Hajj on behalf, Aqeeqah, Udhiyah, Nazar, Sadaqah, and Wells. Flexible prices and reliable services.",
+    "noProducts": "No products available at the moment",
+    "comingSoon": "Products will be added soon",
+    "orderNow": "Order Now",
+    "noImage": "No image available",
+    "startsFrom": "Starts from"
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "companyName": "Ghadq Association",
+    "sections": [
+      {
+        "title": "First: Introduction",
+        "content": "Ghadq Association is committed to protecting the privacy of all its clients and users. This policy explains how we collect, use, and protect your personal information when using our services."
+      },
+      {
+        "title": "Second: Information We Collect",
+        "content": "We collect the following information: Full name - Phone numbers (at least two for communication) - Names of persons for whom rituals are performed - Payment information - Communication data via WhatsApp. All collected information is necessary to perform the service and fulfill legal requirements."
+      },
+      {
+        "title": "Third: How We Use Information",
+        "content": "Your information is used for: Executing and documenting rituals and services - Communicating with you regarding your bookings - Processing financial transactions - Sending documentation and proof of execution - Improving our services. We do not use your information for any other purposes without your explicit consent."
+      },
+      {
+        "title": "Fourth: Information Protection",
+        "content": "We take appropriate technical and organizational measures to protect your information from unauthorized access, loss, or misuse. Access to information is limited only to authorized employees who need it to perform their work."
+      },
+      {
+        "title": "Fifth: Information Sharing",
+        "content": "We do not share your personal information with any third parties except: When legally required by authorities - With trusted service providers who help us execute services (under strict confidentiality agreements) - With your explicit consent."
+      },
+      {
+        "title": "Sixth: Communication via WhatsApp",
+        "content": "All communication and documentation delivery occurs exclusively through WhatsApp. By using our services, you agree to receive communications through this platform. We respect WhatsApp's privacy policy and security standards."
+      },
+      {
+        "title": "Seventh: Documentation and Media",
+        "content": "Documentation aims to provide proof of ritual execution, not for publicity. We commit not to publish any documentation containing your information or the names of persons for whom rituals are performed without your explicit consent."
+      },
+      {
+        "title": "Eighth: Data Retention",
+        "content": "We retain your information for the period necessary to provide services and fulfill legal obligations. You can request deletion of your information after service completion, subject to legal and Sharia requirements."
+      },
+      {
+        "title": "Ninth: Your Rights",
+        "content": "You have the right to: Access your personal information - Request correction of incorrect information - Request deletion of information (subject to legal retention) - Withdraw consent for specific uses. To exercise these rights, contact us through available communication channels."
+      },
+      {
+        "title": "Tenth: Policy Updates",
+        "content": "We may update this privacy policy periodically. We will notify you of any significant changes through available communication means. Continued use of our services after updates means your acceptance of the new policy."
+      }
+    ]
+  },
+  "terms": {
+    "pageTitle": "Terms and Conditions",
+    "companyName": "Ghadq Association",
+    "sections": [
+      {
+        "title": "First: Nature of Service",
+        "content": "Ghadq Association is an entity that executes rituals and charitable services by legal proxy. Services include: Aqiqah – Vows – Charity – Sacrifices – Umrah by proxy – Wells – Water connections. Any service execution is based on the data and intention provided by the client."
+      },
+      {
+        "title": "Second: Booking Confirmation",
+        "content": "Booking is officially confirmed upon sending a message (booking confirmed). Booking confirmation means complete client agreement to all terms and conditions."
+      },
+      {
+        "title": "Third: Proxy and Intention",
+        "content": "Completing the booking constitutes explicit authorization to Ghadq Association to perform the ritual on behalf of the client. The intention and naming are in the name of the delegated person as stated in the data. Performing any single ritual for more than one person is not permissible."
+      },
+      {
+        "title": "Fourth: Modifying, Canceling, or Exchanging the Reservation",
+        "content": "The deadline to modify data, exchange the Aqiqah, or cancel the reservation is 1:00 AM on the day of the reservation. After this time, no modifications or cancellations will be permitted under any circumstances"
+      },
+      {
+        "title": "Fifth: Contact Information",
+        "content": "The client must provide at least two phone numbers for communication. If there is only one number, a number of a family member or acquaintance must be added. The foundation is not responsible for communication failure due to incomplete or incorrect data."
+      },
+      {
+        "title": "Sixth: Islamic Commitment",
+        "content": "Ghadq Association commits to performing all rituals according to approved Islamic rulings. Sacrificial animals are chosen sound and free from defects while observing Islamic conditions. Umrah by proxy is performed only for those who are Islamically permissible (deceased or permanently unable living person)."
+      },
+      {
+        "title": "Seventh: Communication and Receipt Method",
+        "content": "All correspondence and documentation are done via WhatsApp only. Delivery is not done through any other means."
+      },
+      {
+        "title": "Eighth: Documentation (General Principle)",
+        "content": "Documentation aims for reassurance and proof of execution, not publicity. The type and duration of documentation depends on payment status."
+      },
+      {
+        "title": "Ninth: Partial Payment (Remaining Amount)",
+        "content": "In case of a remaining amount from the booking: The client receives preliminary documentation: 10 seconds duration. Proves work completion clearly. Valid for one-time viewing. Not downloadable or re-sendable. Preliminary documentation is clear proof of ritual completion. No additional documentation or remaining documentation is delivered before completing payment."
+      },
+      {
+        "title": "Tenth: Payment Completion Deadline",
+        "content": "The entire remaining amount must be completed immediately upon receiving preliminary documentation. Failure to complete payment stops delivery of any other documentation, and results in receipt delay as determined by the foundation."
+      },
+      {
+        "title": "Eleventh: Documentation Receipt Deadlines",
+        "content": "For Aqiqah / Vows / Charity / Umrah by proxy: Within 24 hours of execution. In cases of pressure or emergencies: Maximum 48 hours. Wells and water connections: From two weeks to two months depending on execution nature."
+      },
+      {
+        "title": "Twelfth: Liability",
+        "content": "The foundation is not responsible for any error resulting from incorrect or incomplete data provided by the client. The foundation is not responsible for any delay resulting from force majeure circumstances beyond control."
+      },
+      {
+        "title": "Thirteenth: Update and Modification",
+        "content": "Ghadq Association has the right to update the terms and conditions in a way that achieves Islamic and organizational benefit. The latest published version is always in effect."
+      },
+      {
+        "title": "Fourteenth: Final Acceptance",
+        "content": "Completing a booking or using any service means complete and final agreement to all terms and conditions mentioned above."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Checkout",
+    "billingInfo": "Billing Information",
+    "orderSummary": "Order Summary",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email Address",
+    "emailPlaceholder": "example@email.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+201234567890",
+    "country": "Country",
+    "countryPlaceholder": "Select your country",
+    "quantity": "Quantity",
+    "total": "Total",
+    "payNow": "Proceed to Payment",
+    "processing": "Processing...",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "noProduct": "No Product Selected",
+    "noProductMessage": "Please select a product before proceeding to checkout.",
+    "productNotFound": "Product Not Found",
+    "productNotFoundMessage": "The selected product could not be found.",
+    "browseProducts": "Browse Products",
+    "loadError": "Failed to load product details. Please try again.",
+    "checkoutError": "An error occurred during checkout. Please try again.",
+    "gatewayNotConfigured": "Payment gateway is not configured. Please contact support.",
+    "directPaymentActive": "Direct Payment Active",
+    "directPaymentMessage": "Please use the payment links on the product page.",
+    "searchCountry": "Search countries...",
+    "noCountriesFound": "No countries found",
+    "step1Title": "Order Details",
+    "step2Title": "Payment",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "payingNow": "Paying Now",
+    "paymentOptions": "Payment Options",
+    "payFull": "Pay Full Amount",
+    "payHalf": "Pay Half",
+    "payCustom": "Custom Amount",
+    "customAmountPlaceholder": "Minimum: {min}",
+    "minimumPayment": "Minimum payment: {amount} {currency}",
+    "minimumPaymentError": "Minimum payment is {amount} {currency}",
+    "maximumPaymentError": "Payment amount cannot exceed {amount} {currency}",
+    "customPaymentNotAllowed": "This product does not support custom payment amounts",
+    "enterCustomAmount": "Please enter a custom payment amount",
+    "couponTitle": "Coupon Code",
+    "couponPlaceholder": "Enter coupon code",
+    "applyCoupon": "Apply",
+    "couponInvalid": "Invalid coupon code",
+    "couponErrors": {
+      "COUPON_NOT_FOUND": "Coupon not found",
+      "COUPON_EXPIRED": "This coupon has expired",
+      "COUPON_NOT_ACTIVE": "This coupon is not active",
+      "COUPON_MAX_USES": "This coupon has reached its maximum uses",
+      "COUPON_MIN_ORDER": "Order amount is below the minimum for this coupon",
+      "COUPON_NOT_APPLICABLE": "This coupon is not applicable to this product"
+    },
+    "agreeToTerms": "I agree to the",
+    "termsLink": "Terms & Conditions",
+    "and": "and",
+    "privacyLink": "Privacy Policy",
+    "termsRequired": "You must agree to the terms and conditions",
+    "continueToPayment": "Continue to Payment",
+    "backToStep1": "Back to Order Details"
+  },
+  "productDetails": {
+    "quantity": "Quantity Needed",
+    "payNow": "Pay Now",
+    "selectSize": "Select Size",
+    "choosePayment": "Choose Payment Option",
+    "fullPayment": "Full Payment",
+    "halfPayment": "Half Payment (50%)",
+    "customPayment": "Custom Amount",
+    "selectSizeFirst": "Please select a size first",
+    "noLinksAvailable": "No payment links available",
+    "outOfStock": "Out of Stock",
+    "outOfStockMessage": "This product is currently unavailable. Please check back later.",
+    "feedsUp": "Feeds up to <strong>{count}</strong> people"
+  },
+  "payment": {
+    "success": {
+      "title": "Payment Successful!",
+      "message": "Thank you! Your payment has been received successfully and we will begin processing your order shortly."
+    },
+    "pending": {
+      "title": "Payment Pending",
+      "message": "Your payment is being processed. The order status will be updated soon."
+    },
+    "failed": {
+      "title": "Payment Failed",
+      "message": "Sorry, the payment was not completed. Please try again or contact us for assistance."
+    },
+    "orderRef": "Order Reference",
+    "backHome": "Back to Home",
+    "browseProducts": "Browse Products",
+    "contactReferral": "Contact {name} on WhatsApp"
+  },
+  "orders": {
+    "pageTitle": "Order History",
+    "orderDetails": "Order Details",
+    "viewDetails": "View Details",
+    "noOrders": "No orders found",
+    "total": "Total",
+    "items": "Products",
+    "customerInfo": "Customer Information",
+    "email": "Email",
+    "phone": "Phone Number",
+    "country": "Country",
+    "paymentMethod": "Payment Method",
+    "referral": "Referral",
+    "paymobInfo": "Paymob Info",
+    "filters": {
+      "all": "All",
+      "search": "Search by name, email, or order number...",
+      "status": "Status",
+      "referral": "Referral",
+      "allReferrals": "All Referrals"
+    },
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "paid": "Paid",
+      "failed": "Failed",
+      "refunded": "Refunded",
+      "cancelled": "Cancelled"
+    },
+    "table": {
+      "orderNumber": "Order Number",
+      "customer": "Customer",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    }
+  },
+  "admin": {
+    "navigation": {
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "orders": "Orders",
+      "coupons": "Coupons",
+      "countries": "Countries",
+      "users": "Users",
+      "referrals": "Referrals",
+      "paymentSettings": "Payment Settings",
+      "activityLogs": "Activity Logs"
+    },
+    "loading": "Loading dashboard...",
+    "redirecting": "Redirecting to login...",
+    "userMenu": {
+      "logout": "Logout"
+    },
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Sign in to access the admin dashboard",
+      "form": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "buttons": {
+        "login": "Login",
+        "loggingIn": "Logging in..."
+      },
+      "errors": {
+        "invalidCredentials": "Invalid credentials",
+        "loginFailed": "Failed to login. Please try again.",
+        "tooManyAttempts": "Too many login attempts. Please try again later."
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome to the admin dashboard",
+      "stats": {
+        "totalProducts": "Total Products",
+        "totalUsers": "Total Users",
+        "orders": "Orders",
+        "countries": "Countries"
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "manageProducts": "Manage Products",
+        "manageOrders": "Manage Orders",
+        "manageCountries": "Manage Countries"
+      }
+    },
+    "products": {
+      "title": "Products",
+      "description": "Manage your products",
+      "addProduct": "Add Product",
+      "reorderButton": "Reorder Products",
+      "reorderModal": {
+        "title": "Reorder Products",
+        "description": "Use the arrows to set the display order, then save.",
+        "save": "Save Order",
+        "cancel": "Cancel"
+      },
+      "editProduct": "Edit Product",
+      "deleteConfirm": "Are you sure you want to delete this product?",
+      "deleteConfirmTitle": "Delete Product",
+      "deleteConfirmButton": "Delete",
+      "deleteCancelButton": "Cancel",
+      "emptyMessage": "No products found. Create your first product!",
+      "table": {
+        "order": "Order",
+        "image": "Image",
+        "nameAr": "Name (AR)",
+        "price": "Price",
+        "inStock": "In Stock",
+        "actions": "Actions"
+      },
+      "status": {
+        "inStock": "In Stock",
+        "outOfStock": "Out of Stock"
+      },
+      "form": {
+        "nameAr": "Name (Arabic) *",
+        "nameEn": "Name (English) *",
+        "contentAr": "Content (Arabic)",
+        "contentEn": "Content (English)",
+        "contentHelp": "Use the toolbar to format text with headings, lists, bold, colors, and more",
+        "contentPlaceholder": "Write product details here...",
+        "price": "Price *",
+        "currency": "Currency *",
+        "mainCurrency": "Main Currency",
+        "basePrice": "Base Price",
+        "currencyPrices": "Prices by Currency",
+        "autoCalculatePrices": "Auto Calculate Prices",
+        "calculating": "Calculating...",
+        "manual": "Manual",
+        "auto": "Auto",
+        "manualLocked": "Manual (locked)",
+        "autoCalculated": "Auto-calculated",
+        "loadingCurrencies": "Loading currencies...",
+        "enterBasePriceAlert": "Please enter a valid base price first",
+        "calculateFailedAlert": "Failed to calculate prices. Please try again.",
+        "manualPriceHelp": "Manual prices are set by you and won't be overwritten by auto-calculation",
+        "autoPriceHelp": "Auto prices are calculated from the base price and will update when you click \"Auto Calculate Prices\"",
+        "productImage": "Product Image",
+        "chooseImage": "Choose Image",
+        "imageHelp": "Upload up to 10 images. First image will be the main image.",
+        "inStockLabel": "In Stock",
+        "isActiveLabel": "Active (visible on site)",
+        "preview": "Preview",
+        "addedPrice": "Added Price (%)",
+        "addedPriceHelp": "Optionally add a percentage increase to all prices. For example, enter 3 to add 3% to all prices. Make sure to set the base price first.",
+        "addedPricePlaceholder": "Enter percentage (e.g., 3)",
+        "applyButton": "Apply",
+        "allowPartialPayment": "Allow Partial Payment",
+        "minimumPaymentType": "Minimum Payment Type",
+        "minimumPaymentPercentage": "Percentage",
+        "minimumPaymentFixed": "Fixed Amount",
+        "minimumPaymentValue": "Minimum Payment Value",
+        "baseMinimumPercentage": "Base Minimum (%)",
+        "baseMinimumFixed": "Base Minimum Amount",
+        "enterBaseMinimumAlert": "Please enter a valid base minimum value first",
+        "minimumPaymentsCalculated": "Minimum payments calculated successfully",
+        "autoCalculateMinimums": "Auto Calculate Minimums",
+        "currencyMinimums": "Minimum Payments by Currency",
+        "priceLabel": "Price",
+        "manualMinimumHelp": "Manual minimum payments are set by you and won't be overwritten by auto-calculation",
+        "autoMinimumHelp": "Auto minimum payments are calculated from the base value and will update when you click \"Auto Calculate Minimums\"",
+        "percentageMinimumHelp": "When using percentage type, the same percentage will apply to all currencies based on their respective prices. No currency-specific settings needed.",
+        "productImages": "Product Images",
+        "addImages": "Add Images",
+        "mainImage": "Main Image",
+        "setAsMain": "Set as main image",
+        "sizes": "Product Sizes (Optional)",
+        "sizesHelp": "Add size variants for this product. When sizes exist, each size holds its own price (the product-level price is hidden).",
+        "addSize": "Add Size",
+        "removeSize": "Remove Size",
+        "sizeNumber": "Size {number}",
+        "sizeNameAr": "Size Name (Arabic)",
+        "sizeNameEn": "Size Name (English)",
+        "sizePrice": "Size Price",
+        "sizeBasePrice": "Base Price",
+        "noSizes": "No size variants added",
+        "easykashLinks": "Easy Kash Payment Links",
+        "easykashLinksHelp": "Add direct payment links for Easy Kash. These are used when Easy Kash is the active payment method.",
+        "fullPaymentLink": "Full Payment Link",
+        "halfPaymentLink": "Half Payment Link",
+        "customPaymentLink": "Custom Payment Link",
+        "sacrificeSection": "Aqiqah / Sacrifice Settings",
+        "workAsSacrificeLabel": "Use as Sacrifice (Aqiqah/Udhiyah)",
+        "sacrificeCountLabel": "Number of Sacrifices this Product Covers",
+        "sacrificeCountHelp": "How many sacrifice slots does a single unit of this product fulfill? (e.g. 2 for a male Aqiqah)",
+        "feedsUpLabel": "Feeds Up To (people)",
+        "feedsUpHelp": "Approximate number of people this product/size feeds. Leave 0 to hide.",
+        "pricesOnSizesNote": "Prices are managed on each size below."
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "addProduct": "Add Product",
+        "updateProduct": "Update Product",
+        "uploading": "Uploading..."
+      },
+      "messages": {
+        "uploadFailed": "Failed to upload images",
+        "loadFailed": "Failed to load product",
+        "saveFailed": "Failed to save product",
+        "deleteFailed": "Failed to delete product",
+        "createSuccess": "Product created successfully",
+        "updateSuccess": "Product updated successfully",
+        "deleteSuccess": "Product deleted successfully",
+        "invalidPercentage": "Please enter a valid percentage",
+        "setPriceFirst": "Please set the base price first",
+        "priceIncreased": "Price increased by {percentage}%",
+        "minOneSize": "Product must have at least one size",
+        "imagesUploaded": "Images uploaded successfully",
+        "maxImagesReached": "Maximum number of images reached",
+        "refreshDisabled": "Page refresh is disabled while editing to prevent data loss",
+        "reorderFailed": "Failed to reorder products",
+        "reorderSuccess": "Products reordered successfully"
+      }
+    },
+    "paymentSettings": {
+      "title": "Payment Settings",
+      "description": "Choose which payment gateway to use. API credentials are configured via environment variables.",
+      "selectMethod": "Select Payment Method",
+      "paymob": "Paymob",
+      "paymobDesc": "Full checkout with quantity selection",
+      "easykash": "Easy Kash",
+      "easykashDesc": "Direct payment links without checkout",
+      "saveSettings": "Save Settings",
+      "settingsSaved": "Payment settings saved successfully"
+    },
+    "countries": {
+      "title": "Countries Management",
+      "description": "Activate or deactivate countries for the platform",
+      "searchPlaceholder": "Search countries by name, code or currency...",
+      "noResults": "No countries match your search.",
+      "emptyMessage": "No countries found. Run the seed script to populate.",
+      "loadingCountries": "Loading countries...",
+      "table": {
+        "flag": "Flag",
+        "code": "Code",
+        "nameEn": "Name (EN)",
+        "nameAr": "Name (AR)",
+        "currency": "Currency",
+        "status": "Status"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "filter": {
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "messages": {
+        "saveFailed": "Failed to update country",
+        "updateSuccess": "Country updated successfully"
+      }
+    },
+    "coupons": {
+      "title": "Coupons",
+      "description": "Manage discount coupons",
+      "addCoupon": "Add Coupon",
+      "editCoupon": "Edit Coupon",
+      "deleteConfirm": "Are you sure you want to delete this coupon?",
+      "deleteConfirmTitle": "Delete Coupon",
+      "deleteButton": "Delete",
+      "emptyMessage": "No coupons found. Create your first coupon!",
+      "table": {
+        "code": "Code",
+        "type": "Type",
+        "uses": "Uses",
+        "status": "Status",
+        "validUntil": "Valid Until",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active",
+        "expired": "Expired",
+        "disabled": "Disabled"
+      },
+      "form": {
+        "code": "Coupon Code *",
+        "type": "Discount Type *",
+        "typePercentage": "Percentage",
+        "typeFixed": "Fixed Amount",
+        "value": "Discount Value *",
+        "validFrom": "Valid From *",
+        "validUntil": "Valid Until",
+        "maxUses": "Maximum Uses",
+        "unlimited": "Unlimited",
+        "minOrderAmount": "Minimum Order Amount",
+        "maxDiscountAmount": "Maximum Discount Amount",
+        "noLimit": "No limit",
+        "descriptionAr": "Description (Arabic)",
+        "descriptionEn": "Description (English)",
+        "status": "Status"
+      },
+      "buttons": {
+        "cancelButton": "Cancel",
+        "addCoupon": "Add Coupon",
+        "updateCoupon": "Update Coupon"
+      },
+      "messages": {
+        "saveFailed": "Failed to save coupon",
+        "deleteFailed": "Failed to delete coupon",
+        "createSuccess": "Coupon created successfully",
+        "updateSuccess": "Coupon updated successfully",
+        "deleteSuccess": "Coupon deleted successfully"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "description": "Manage admin users",
+      "addUser": "Add User",
+      "editUser": "Edit User",
+      "cannotDeleteSelf": "You cannot delete your own account",
+      "cannotDeleteSuperAdmin": "Only super admins can delete super admin accounts",
+      "deleteConfirm": "Are you sure you want to delete this user?",
+      "deleteConfirmTitle": "Delete User",
+      "deleteConfirmButton": "Delete",
+      "deleteCancelButton": "Cancel",
+      "emptyMessage": "No users found",
+      "loading": "Loading...",
+      "pagesAccess": "pages access",
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "createdAt": "Created At",
+        "actions": "Actions"
+      },
+      "roles": {
+        "admin": "Admin",
+        "super_admin": "Super Admin"
+      },
+      "form": {
+        "name": "Name *",
+        "email": "Email *",
+        "password": "Password *",
+        "passwordOptional": "Password (leave blank to keep current)",
+        "passwordPlaceholder": "Minimum 6 characters",
+        "passwordOptionalPlaceholder": "Leave blank to keep current password",
+        "role": "Role *",
+        "allowedPages": "Allowed Pages",
+        "allowedPagesHelp": "Select which admin pages this user can access"
+      },
+      "pageLabels": {
+        "products": "Products",
+        "orders": "Orders",
+        "coupons": "Coupons",
+        "countries": "Countries",
+        "users": "Users",
+        "referrals": "Referrals",
+        "activityLogs": "Activity Logs",
+        "paymentSettings": "Payment Settings"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "addUser": "Add User",
+        "updateUser": "Save Changes"
+      },
+      "messages": {
+        "saveFailed": "Failed to save user",
+        "cannotEditSelf": "You cannot edit your own account",
+        "deleteFailed": "Failed to delete user",
+        "createFailed": "Failed to create user",
+        "createSuccess": "User created successfully",
+        "deleteSuccess": "User deleted successfully",
+        "updateSuccess": "User updated successfully",
+        "updateFailed": "Failed to update user"
+      }
+    },
+    "referrals": {
+      "title": "Referrals",
+      "description": "Manage referral partners",
+      "addReferral": "Add Referral",
+      "editReferral": "Edit Referral",
+      "deleteConfirm": "Are you sure you want to delete this referral?",
+      "deleteConfirmTitle": "Delete Referral",
+      "deleteButton": "Delete",
+      "cancelButton": "Cancel",
+      "searchPlaceholder": "Search by name, ID, or phone...",
+      "emptyMessage": "No referrals found. Create your first referral!",
+      "table": {
+        "name": "Name",
+        "referralId": "Referral ID",
+        "phone": "Phone",
+        "createdAt": "Created At",
+        "actions": "Actions"
+      },
+      "form": {
+        "name": "Name *",
+        "namePlaceholder": "Enter referral name",
+        "referralId": "Referral ID *",
+        "referralIdPlaceholder": "Enter unique referral ID",
+        "phone": "Phone Number *",
+        "phonePlaceholder": "+966XXXXXXXXX"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "addReferral": "Add Referral",
+        "updateReferral": "Update Referral"
+      },
+      "messages": {
+        "saveFailed": "Failed to save referral",
+        "deleteFailed": "Failed to delete referral",
+        "createSuccess": "Referral created successfully",
+        "updateSuccess": "Referral updated successfully",
+        "deleteSuccess": "Referral deleted successfully"
+      }
+    },
+    "logs": {
+      "title": "Activity Logs",
+      "description": "Track admin activities and changes",
+      "refresh": "Refresh",
+      "emptyMessage": "No activity logs found",
+      "filters": {
+        "title": "Filters",
+        "actionLabel": "Action",
+        "resourceLabel": "Resource"
+      },
+      "table": {
+        "user": "User",
+        "action": "Action",
+        "resource": "Resource",
+        "details": "Details",
+        "date": "Date"
+      },
+      "actions": {
+        "allActions": "All Actions",
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete",
+        "login": "Login",
+        "logout": "Logout"
+      },
+      "resources": {
+        "allResources": "All Resources",
+        "product": "Product",
+        "user": "User",
+        "auth": "Auth",
+        "country": "Country",
+        "order": "Order",
+        "referral": "Referral",
+        "paymentSettings": "Payment Settings"
+      }
+    }
+  },
+  "calcAqeqa": {
+    "pageTitle": "Aqiqah Calculator",
+    "hadeth": "On the authority of Aisha (may Allah be pleased with her): that the Messenger of Allah \u0028peace be upon him\u0029 ordered them to give two equivalent sheep for a boy, and one sheep for a girl. (Tirmidhi)",
+    "childrenCount": "Number of Children",
+    "males": "Males",
+    "females": "Females",
+    "totalRequired": "{count} sacrifice(s) required",
+    "sacrificeType": "Sacrifice Type",
+    "selectSacrifice": "Select sacrifice type",
+    "covers": "covers {count}",
+    "sizeLabel": "Select Size",
+    "loadingProducts": "Loading products...",
+    "noSacrificeProducts": "No sacrifice products available.",
+    "bookNow": "Book Now",
+    "hint": "Enter the number of children above to get started.",
+    "additionalSacrifice": "Additional Sacrifices",
+    "addMoreSacrifice": "Add another sacrifice",
+    "summary": "Order Summary",
+    "checkoutEach": "Book each sacrifice separately:",
+    "bookProduct": "Book {qty}× {name}",
+    "easykashSummaryTitle": "Your Aqiqah is ready \u2014 buy via Easy Kash",
+    "easykashSummaryDesc": "Visit each product page below and complete your payment via Easy Kash:",
+    "viewProduct": "View & Buy",
+    "status": {
+      "sufficient": "This sacrifice fulfills the Aqiqah requirement",
+      "insufficient": "{count} more sacrifice(s) needed",
+      "qty": "{qty}x {name}"
+    },
+    "upgrade": {
+      "title": "Upgrade your sacrifice?",
+      "description": "A larger sacrifice type covers more — would you like to upgrade?",
+      "currentChoice": "Your current choice",
+      "covers": "Covers {count} sacrifice(s)",
+      "skip": "No thanks, continue with current"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "Sorry, the page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home",
+    "browseProducts": "Browse Products",
+    "copyright": "Ghadq Association. All rights reserved."
+  }
+}

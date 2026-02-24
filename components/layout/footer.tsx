@@ -135,7 +135,7 @@ export default function Footer() {
 
           {/* Payment Methods */}
           <div className="flex justify-center gap-4">
-            <div className="bg-background rounded px-3 py-2 flex items-center justify-center">
+            <div className="px-3 py-2 flex items-center justify-center">
               <Image
                 src="/icons/apple-pay.svg"
                 alt="Apple Pay"
@@ -143,7 +143,7 @@ export default function Footer() {
                 height={24}
               />
             </div>
-            <div className="bg-background rounded px-3 py-2 flex items-center justify-center">
+            <div className="px-3 py-2 flex items-center justify-center">
               <Image
                 src="/icons/master-card.svg"
                 alt="MasterCard"
@@ -151,7 +151,7 @@ export default function Footer() {
                 height={24}
               />
             </div>
-            <div className="bg-background rounded px-3 py-2 flex items-center justify-center">
+            <div className="px-3 py-2 flex items-center justify-center">
               <Image src="/icons/visa.svg" alt="Visa" width={40} height={24} />
             </div>
           </div>

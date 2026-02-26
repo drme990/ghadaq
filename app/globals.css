@@ -6,7 +6,8 @@
   --background: #fcfcfa;
   --foreground: #000f2f;
   --secondary: #707070;
-  --success: #ffa401;
+  --primary: #33ad6c;
+  --success: #33ad6c;
   --error: #ff2d24;
   --warning: #f59e0b;
   --info: #3b82f6;
@@ -31,7 +32,8 @@
   --background: #134d37;
   --foreground: #fcfcfa;
   --secondary: #cccccc;
-  --success: #ffa401;
+  --primary: #ffa401;
+  --success: #33ad6c;
   --error: #ff2d24;
   --warning: #f59e0b;
   --info: #3b82f6;
@@ -54,6 +56,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-success: var(--success);
   --color-error: var(--error);

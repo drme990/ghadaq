@@ -6,11 +6,14 @@ export async function GET() {
   try {
     await dbConnect();
 
-    let settings = await PaymentSettings.findOne().lean();
+    let settings = await PaymentSettings.findOne({ project: 'ghadaq' }).lean();
 
     if (!settings) {
       // Default to paymob if no settings exist
-      settings = await PaymentSettings.create({ paymentMethod: 'paymob' });
+      settings = await PaymentSettings.create({
+        project: 'ghadaq',
+        paymentMethod: 'paymob',
+      });
       settings = settings.toObject();
     }
 

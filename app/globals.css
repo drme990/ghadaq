@@ -336,6 +336,10 @@ input[type='number'] {
   overflow-wrap: anywhere; /* Only break if absolutely forced */
 }
 
+.product-content * {
+  background-color: transparent !important; /* Ensure no background color from Quill styles */
+}
+
 .product-content h1 {
   font-size: 1.5rem;
   font-weight: 700;

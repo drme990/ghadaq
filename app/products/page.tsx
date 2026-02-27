@@ -91,7 +91,6 @@ function ProductCard({
           prices={displayPrices}
           defaultPrice={displayPrice}
           defaultCurrency={product.baseCurrency}
-          className="text-success font-bold text-lg"
           prefix={showSizeSelector ? t('startsFrom') : undefined}
         />
         <Button variant="primary" size="sm" href={`/products/${product._id}`}>

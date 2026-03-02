@@ -10,6 +10,8 @@ import {
 import { validateCoupon, applyCoupon } from '@/lib/coupon';
 import { trackInitiateCheckout } from '@/lib/fb-capi';
 
+export const runtime = 'nodejs'; // uses mongoose + Node.js crypto
+
 /**
  * POST /api/payment/checkout
  *

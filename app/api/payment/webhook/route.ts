@@ -7,6 +7,8 @@ import {
 } from '@/lib/paymob';
 import { trackPurchase } from '@/lib/fb-capi';
 
+export const runtime = 'nodejs'; // uses mongoose + Node.js crypto
+
 /**
  * POST /api/payment/webhook
  *

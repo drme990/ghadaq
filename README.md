@@ -6,7 +6,7 @@ A modern, bilingual Next.js 16 web application for **Ghadaq Association**, provi
 
 ---
 
-## 🌟 Features
+## 🌟 Features 
 
 ### Public-Facing
 

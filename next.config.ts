@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
   env: {
     BASE_URL: process.env.BASE_URL || 'https://www.ghadqplus.com',
   },
+  async rewrites() {
+    const manasikUrl = process.env.MANASIK_API_URL || 'https://www.manasik.net';
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${manasikUrl}/api/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextIntlConfig(nextConfig);

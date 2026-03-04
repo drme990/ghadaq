@@ -10,12 +10,6 @@ export interface CurrencyMinimumPayment {
   isManual: boolean;
 }
 
-export interface EasykashLinks {
-  fullPayment: string;
-  halfPayment: string;
-  customPayment: string;
-}
-
 export interface ProductSize {
   _id?: string;
   name: {
@@ -26,7 +20,6 @@ export interface ProductSize {
   price: number;
   /** Multi-currency converted / manually-set prices */
   prices: CurrencyPrice[];
-  easykashLinks?: EasykashLinks;
   /** How many people / slots this size feeds / covers */
   feedsUp?: number;
 }

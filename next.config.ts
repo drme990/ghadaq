@@ -21,11 +21,11 @@ const nextConfig: NextConfig = {
     BASE_URL: process.env.BASE_URL || 'https://www.ghadqplus.com',
   },
   async rewrites() {
-    const manasikUrl = process.env.MANASIK_API_URL || 'https://www.manasik.net';
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:3000';
     return [
       {
         source: '/api/:path*',
-        destination: `${manasikUrl}/api/:path*`,
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },

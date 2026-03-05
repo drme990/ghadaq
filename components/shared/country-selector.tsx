@@ -74,8 +74,8 @@ export default function CountrySelector({
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'w-full h-12 px-4 py-3 text-left bg-background border rounded-lg transition-colors flex items-center justify-between',
-          error ? 'border-error' : 'border-stroke focus:border-success',
-          'focus:outline-none focus:ring-2 focus:ring-success/20',
+          error ? 'border-error' : 'border-stroke focus:border-primary',
+          'focus:outline-none focus:ring-2 focus:ring-primary',
         )}
       >
         <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -122,7 +122,7 @@ export default function CountrySelector({
                 placeholder={t('searchCountry', {
                   defaultValue: 'Search countries...',
                 })}
-                className="w-full pl-10 pr-4 py-2 bg-card-bg border border-stroke rounded-lg focus:outline-none focus:border-success text-sm"
+                className="w-full pl-10 pr-4 py-2 bg-card-bg border border-stroke rounded-lg focus:outline-none focus:border-primary text-sm"
                 dir={locale === 'ar' ? 'rtl' : 'ltr'}
               />
             </div>

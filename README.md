@@ -1,12 +1,117 @@
-# Ghadaq Association — Islamic Services Platform
+# Ghadaq Association — Public Web App
 
-A modern, bilingual Next.js 16 web application for **Ghadaq Association**, providing Islamic religious and charitable services including Aqiqah, sacrifices, vows, charity, and well-drilling services. Built with a custom gold/green color scheme and full Arabic RTL support.
-
-> **Architecture Note:** This is the **public-facing client app only**. All admin operations (product management, orders, users, settings) are handled by the separate **Admin Panel** (`admin_panel/`). Both apps share the same MongoDB database.
+A bilingual (Arabic / English) **Next.js 16** public-facing application for **Ghadaq Association**, offering Islamic charitable services including Aqiqah, sacrifices, vows, and charity. Built with a custom gold/green theme and full RTL support.
 
 ---
 
-## 🌟 Features
+## Architecture
+
+This app is a **client-only frontend**. It has no direct database connection. All API calls are proxied via Next.js rewrites to the shared `next-backend` Next.js serverless API.
+
+```
+User → ghadaq (:3002) → /api/* rewrite → next-backend (:3000) → MongoDB Atlas
+```
+
+Orders originating from this app are tagged `source: 'ghadaq'` (prefix `GHD-`). Users landing on a GHD- order status page at the Manasik URL are automatically redirected to the Ghadaq URL.
+
+---
+
+## Tech Stack
+
+| Concern        | Technology                              |
+| -------------- | --------------------------------------- |
+| Framework      | Next.js 16.1.6 (App Router)             |
+| Language       | TypeScript                              |
+| Styling        | Tailwind CSS v4                         |
+| i18n           | next-intl v4 (Arabic RTL + English LTR) |
+| Theme          | next-themes (light / dark)              |
+| Icons          | Lucide React + React Icons              |
+| Marquee        | react-fast-marquee                      |
+| Currency flags | country-flag-icons                      |
+
+---
+
+## Features
+
+- **Bilingual** — Arabic (RTL primary) and English, via `next-intl`
+- **Product catalog** — Browse and purchase Islamic services
+- **Aqiqah calculator** — Interactive cost estimator
+- **Checkout flow** — Billing details, currency selection, coupon codes, referral tracking, partial payments, order notes
+- **Payment** — EasyKash hosted payment page (handled by backend)
+- **Order confirmation emails** — Sent automatically by backend on paid status
+- **Multi-currency pricing** — Rates fetched from backend
+- **Country-based visibility** — Products and prices filtered by country
+- **Works gallery** — Two-row image slider managed from admin panel
+- **SEO** — Dynamic `sitemap.xml`, `robots.txt`, Open Graph tags
+- **PWA** — `site.webmanifest` for installable experience
+- **Facebook Pixel** — Client-side + server-side Conversions API events
+
+### Brand
+
+- Primary: **#ffc001** (gold / amber)
+- Gradient: `#ffa401 → #ffc001 → #ffd84d`
+- Dark mode: forest green `#134d37`
+- Fonts: Satoshi (English), Expo Arabic
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- `next-backend` running on port 3000 (or configured via `BACKEND_URL`)
+
+### Install & run
+
+```bash
+cd ghadaq
+npm install
+npm run dev   # http://localhost:3002
+```
+
+### Environment variables
+
+Create a `.env.local` file:
+
+```env
+# Backend API (the shared Next.js serverless API)
+BACKEND_URL=http://localhost:3000
+
+# Public site URL (used in meta tags / canonical)
+BASE_URL=http://localhost:3002
+
+# Facebook Pixel — client-side
+NEXT_PUBLIC_FB_PIXEL_ID=your-pixel-id
+
+# Facebook Conversions API — server-side
+API_TOKEN=your-facebook-access-token
+FB_PIXEL_ID=your-pixel-id
+FB_TEST_EVENT_CODE=       # optional, for test events
+```
+
+> `NEXT_PUBLIC_*` variables are exposed to the browser. All others are server-only.
+
+---
+
+## Scripts
+
+| Command         | Description                             |
+| --------------- | --------------------------------------- |
+| `npm run dev`   | Start development server with Turbopack |
+| `npm run build` | Production build                        |
+| `npm start`     | Start production server                 |
+| `npm run lint`  | Run ESLint                              |
+
+---
+
+## Related Projects
+
+| Project         | Role                                     |
+| --------------- | ---------------------------------------- |
+| `next-backend/` | Shared API server (required to run)      |
+| `manasik-v2/`   | Sister public app for Manasik Foundation |
+| `admin_panel/`  | Admin dashboard for both platforms       |
 
 ### Public-Facing
 

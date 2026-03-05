@@ -883,7 +883,7 @@ function CheckoutContent() {
                           placeholder={t('notesPlaceholder')}
                           rows={3}
                           dir={isRTL ? 'rtl' : 'ltr'}
-                          className="w-full px-4 py-3 rounded-site border border-stroke bg-card-bg text-foreground placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-success/40 focus:border-success transition-all resize-none text-sm"
+                          className="w-full px-4 py-3 rounded-site border border-stroke bg-card-bg text-foreground placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all resize-none text-sm"
                         />
                       </div>
 

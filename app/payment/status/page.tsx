@@ -377,7 +377,7 @@ function PaymentStatusContent() {
               <Button variant="primary" href="/">
                 {t('backHome')}
               </Button>
-              <Button variant="outline" href="/products">
+              <Button variant="secondary" href="/products">
                 {t('browseProducts')}
               </Button>
             </div>

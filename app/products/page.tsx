@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: 'https://www.ghadqplus.com/products',
+      canonical: 'https://www.ghadaqplus.com/products',
     },
   };
 }
@@ -112,13 +112,13 @@ export default async function ProductsPage() {
     name: 'منتجات مُؤسسة غدق',
     description:
       'تصفح جميع خدمات مؤسسة غدق: عمرة البدل، حج البدل، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار.',
-    url: 'https://www.ghadqplus.com/products',
+    url: 'https://www.ghadaqplus.com/products',
     numberOfItems: products.length,
     itemListElement: products.map((product, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: product.name.ar,
-      url: `https://www.ghadqplus.com/products/${product._id}`,
+      url: `https://www.ghadaqplus.com/products/${product._id}`,
       image: product.images?.[0],
     })),
   };

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.ghadqplus.com';
+  const baseUrl = 'https://www.ghadaqplus.com';
 
   // Fetch all products for dynamic sitemap entries
   let productUrls: MetadataRoute.Sitemap = [];

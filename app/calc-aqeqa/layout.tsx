@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     'aqiqah',
   ],
   alternates: {
-    canonical: 'https://www.ghadqplus.com/calc-aqeqa',
+    canonical: 'https://www.ghadaqplus.com/calc-aqeqa',
   },
   openGraph: {
     title: 'حاسبة العقيقة | مؤسسة غدق',
     description:
       'احسب عدد الذبائح المطلوبة للعقيقة بسهولة - خدمة عقيقة موثوقة بالوكالة الشرعية.',
-    url: 'https://www.ghadqplus.com/calc-aqeqa',
+    url: 'https://www.ghadaqplus.com/calc-aqeqa',
     type: 'website',
   },
 };

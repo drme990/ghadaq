@@ -99,7 +99,7 @@ const expoArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.ghadqplus.com'),
+  metadataBase: new URL('https://www.ghadaqplus.com'),
   title: {
     default: 'مؤسسة غدق | أداء الشعائر والنُسك بالوكالة الشرعية',
     template: '%s | مؤسسة غدق',
@@ -138,7 +138,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ar_SA',
     alternateLocale: ['en_US'],
-    url: 'https://www.ghadqplus.com',
+    url: 'https://www.ghadaqplus.com',
     siteName: 'مؤسسة غدق',
     title: 'مؤسسة غدق | أداء الشعائر والنُسك بالوكالة الشرعية',
     description:

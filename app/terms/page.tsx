@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('pageTitle'),
     description: `${t('pageTitle')} - ${t('companyName')}`,
     alternates: {
-      canonical: 'https://www.ghadqplus.com/terms',
+      canonical: 'https://www.ghadaqplus.com/terms',
     },
   };
 }

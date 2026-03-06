@@ -61,7 +61,7 @@ export async function generateMetadata({
       images: product.images?.[0] ? [product.images[0]] : [],
     },
     alternates: {
-      canonical: `https://www.ghadqplus.com/products/${id}`,
+      canonical: `https://www.ghadaqplus.com/products/${id}`,
     },
   };
 }
@@ -99,7 +99,7 @@ export default async function ProductDetailsPage({
         ?.replace(/<[^>]*>/g, '')
         .slice(0, 200)
         .trim() || product.name.ar,
-    image: product.images?.[0] || 'https://www.ghadqplus.com/logo-light.png',
+    image: product.images?.[0] || 'https://www.ghadaqplus.com/logo-light.png',
     brand: {
       '@type': 'Organization',
       name: 'مؤسسة غدق',
@@ -115,10 +115,10 @@ export default async function ProductDetailsPage({
       seller: {
         '@type': 'Organization',
         name: 'مؤسسة غدق',
-        url: 'https://www.ghadqplus.com',
+        url: 'https://www.ghadaqplus.com',
       },
     },
-    url: `https://www.ghadqplus.com/products/${id}`,
+    url: `https://www.ghadaqplus.com/products/${id}`,
   };
 
   // Fire-and-forget — don't await so it doesn't block SSR
@@ -127,7 +127,7 @@ export default async function ProductDetailsPage({
     productName: product.name.en || product.name.ar,
     value: lowestPrice,
     currency: product.baseCurrency || 'SAR',
-    sourceUrl: `https://www.ghadqplus.com/products/${id}`,
+    sourceUrl: `https://www.ghadaqplus.com/products/${id}`,
     userData: { client_ip_address: ip, client_user_agent: ua },
   }).catch(() => {});
 

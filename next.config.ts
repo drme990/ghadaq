@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   env: {
-    BASE_URL: process.env.BASE_URL || 'https://www.ghadqplus.com',
+    BASE_URL: process.env.BASE_URL || 'https://www.ghadaqplus.com',
   },
   async rewrites() {
     const backendUrl = process.env.BACKEND_URL || 'http://localhost:3000';

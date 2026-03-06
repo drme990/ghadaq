@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://www.ghadqplus.com/sitemap.xml',
-    host: 'https://www.ghadqplus.com',
+    sitemap: 'https://www.ghadaqplus.com/sitemap.xml',
+    host: 'https://www.ghadaqplus.com',
   };
 }

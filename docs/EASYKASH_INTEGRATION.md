@@ -75,7 +75,7 @@ EasyKash sends POST callback to /api/payment/webhook
   "name": "Customer Name",
   "email": "customer@example.com",
   "mobile": "+201234567890",
-  "redirectUrl": "https://www.ghadqplus.com/payment/status?orderNumber=GHD-xxx",
+  "redirectUrl": "https://www.ghadaqplus.com/payment/status?orderNumber=GHD-xxx",
   "customerReference": "GHD-xxx"
 }
 ```

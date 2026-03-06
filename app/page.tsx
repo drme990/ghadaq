@@ -38,11 +38,11 @@ const orgJsonLd = {
   '@type': 'Organization',
   name: 'مؤسسة غدق',
   alternateName: 'Ghadq Association',
-  url: 'https://www.ghadqplus.com',
-  logo: 'https://www.ghadqplus.com/logo-light.png',
+  url: 'https://www.ghadaqplus.com',
+  logo: 'https://www.ghadaqplus.com/logo-light.png',
   description:
     'مؤسسة غدق - نُؤدي عنك بالوكالة الشرعية أداء العمرة، الحج، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار. خدمات موثوقة بتوثيق احترافي.',
-  sameAs: ['https://www.ghadqplus.com'],
+  sameAs: ['https://www.ghadaqplus.com'],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
@@ -84,13 +84,13 @@ export const metadata: Metadata = {
     'hajj proxy',
   ],
   alternates: {
-    canonical: 'https://www.ghadqplus.com',
+    canonical: 'https://www.ghadaqplus.com',
   },
   openGraph: {
     title: 'مؤسسة غدق | عمرة وحج وعقيقة وأضحية بالوكالة الشرعية',
     description:
       'نُؤدي عنك بالوكالة الشرعية: عمرة البدل، حج البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار. التزام شرعي وتوثيق احترافي.',
-    url: 'https://www.ghadqplus.com',
+    url: 'https://www.ghadaqplus.com',
     type: 'website',
   },
 };

@@ -37,6 +37,7 @@ Orders originating from this app are tagged `source: 'ghadaq'` (prefix `GHD-`). 
 - **Product catalog** — Browse and purchase Islamic services
 - **Aqiqah calculator** — Interactive cost estimator
 - **Checkout flow** — Billing details, currency selection, coupon codes, referral tracking, partial payments, order notes
+- **Referral tracking** — `?ref=` parameter captured on **any** page and persisted in sessionStorage via `ReferralProvider`, so the referral survives navigation to checkout
 - **Payment** — EasyKash hosted payment page (handled by backend)
 - **Order confirmation emails** — Sent automatically by backend on paid status
 - **Multi-currency pricing** — Rates fetched from backend
@@ -123,7 +124,7 @@ FB_TEST_EVENT_CODE=       # optional, for test events
 - **Multi-Currency Pricing** — Real-time exchange rates, auto-pricing per country
 - **Country-Based Routing** — Prices and visibility filtered by customer country
 - **Testimonials Slider** — Marquee-based customer testimonial section
-- **Referral System** — Referral codes tracked through the checkout and order flow
+- **Referral System** — `?ref=` parameter captured on any landing page via `ReferralProvider` (sessionStorage), automatically passed through to checkout and order flow
 - **Our Works Gallery** — Two-row image slider showcasing completed works, managed from the admin panel
 - **SEO Ready** — Dynamic `sitemap.xml`, `robots.txt`, Open Graph meta tags
 - **Light / Dark Theme** — User-switchable via `next-themes`

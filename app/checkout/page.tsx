@@ -360,7 +360,6 @@ function CheckoutContent() {
       if (data.success && data.data.checkoutUrl) {
         window.location.href = data.data.checkoutUrl;
       } else if (data.success && !data.data.checkoutUrl) {
-        console.log(data);
         setError(t('gatewayNotConfigured'));
         setSubmitting(false);
       } else {

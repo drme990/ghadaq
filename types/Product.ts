@@ -63,6 +63,11 @@ export interface ReservationField {
   options?: ReservationFieldOption[];
 }
 
+export interface ProductUpgradeFeatures {
+  ar: string[];
+  en: string[];
+}
+
 export interface Product {
   _id: string;
   name: {
@@ -93,6 +98,8 @@ export interface Product {
   upgradeTo?: string;
   /** Discount percentage when upgrading (0 = same price, 100 = free) */
   upgradeDiscount?: number;
+  /** Optional feature bullets shown in checkout upgrade modal */
+  upgradeFeatures?: ProductUpgradeFeatures | null;
   workAsSacrifice?: boolean;
   sacrificeCount?: number;
   reservationFields?: ReservationField[];

@@ -51,6 +51,7 @@ export async function generateMetadata({
       .slice(0, 160)
       .trim() || productName;
   const productPrice = `${product.sizes?.[0]?.price ?? 0} ${product.baseCurrency}`;
+  const canonicalPath = product.slug || product._id || id;
 
   return {
     title: productName,
@@ -61,7 +62,7 @@ export async function generateMetadata({
       images: product.images?.[0] ? [product.images[0]] : [],
     },
     alternates: {
-      canonical: `https://www.ghadaqplus.com/products/${id}`,
+      canonical: `https://www.ghadaqplus.com/products/${canonicalPath}`,
     },
   };
 }
@@ -89,6 +90,7 @@ export default async function ProductDetailsPage({
   const lowestPrice = product.sizes?.length
     ? Math.min(...product.sizes.map((s) => s.price))
     : 0;
+  const canonicalPath = product.slug || product._id || id;
 
   const productJsonLd = {
     '@context': 'https://schema.org',
@@ -118,16 +120,16 @@ export default async function ProductDetailsPage({
         url: 'https://www.ghadaqplus.com',
       },
     },
-    url: `https://www.ghadaqplus.com/products/${id}`,
+    url: `https://www.ghadaqplus.com/products/${canonicalPath}`,
   };
 
   // Fire-and-forget — don't await so it doesn't block SSR
   trackViewContent({
-    productId: id,
+    productId: product._id,
     productName: product.name.en || product.name.ar,
     value: lowestPrice,
     currency: product.baseCurrency || 'SAR',
-    sourceUrl: `https://www.ghadaqplus.com/products/${id}`,
+    sourceUrl: `https://www.ghadaqplus.com/products/${canonicalPath}`,
     userData: { client_ip_address: ip, client_user_agent: ua },
   }).catch(() => {});
 

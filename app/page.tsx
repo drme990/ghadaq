@@ -12,27 +12,6 @@ import GoToTop from '@/components/shared/go-to-top';
 import WhatsAppButton from '@/components/shared/whats-app-button';
 import { Metadata } from 'next';
 
-const EMPTY_WORKS = { row1: [] as string[], row2: [] as string[] };
-
-async function getWorksImages() {
-  try {
-    const res = await fetch(
-      `${process.env.BACKEND_URL}/api/appearance?project=ghadaq`,
-      {
-        cache: 'no-store',
-      },
-    );
-    const data = await res.json();
-    if (!data.success) return EMPTY_WORKS;
-    return {
-      row1: data.data?.row1 ?? [],
-      row2: data.data?.row2 ?? [],
-    };
-  } catch {
-    return EMPTY_WORKS;
-  }
-}
-
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -96,7 +75,6 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const worksImages = await getWorksImages();
   return (
     <>
       <script
@@ -105,9 +83,10 @@ export default async function HomePage() {
       />
       <Header />
       <main>
+        s
         <Hero />
         <div className="grid-bg">
-          <OurWorks row1={worksImages.row1} row2={worksImages.row2} />
+          <OurWorks />
           <WorkSteps />
           <WhyUs />
           <Testimonials />

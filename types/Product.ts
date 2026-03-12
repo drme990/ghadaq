@@ -56,6 +56,14 @@ export interface ReservationFieldOption {
 }
 
 export interface ReservationField {
+  key:
+    | 'intention'
+    | 'sacrificeFor'
+    | 'gender'
+    | 'isAlive'
+    | 'shortDuaa'
+    | 'photo'
+    | 'executionDate';
   type:
     | 'text'
     | 'textarea'

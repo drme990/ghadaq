@@ -76,6 +76,7 @@ export interface ReservationField {
   required: boolean;
   maxLength?: number;
   options?: ReservationFieldOption[];
+  supportsMulti?: boolean;
 }
 
 export interface ProductUpgradeFeatures {

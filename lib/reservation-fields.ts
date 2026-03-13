@@ -20,11 +20,23 @@ export function normalizeReservationOptionValue(
   if (key === 'gender') {
     if (normalized === 'male' || normalized === 'ذكر') return 'ذكر';
     if (normalized === 'female' || normalized === 'انثى') return 'انثى';
+    if (
+      normalized === 'males and females' ||
+      normalized === 'ذكور و اناث' ||
+      normalized === 'مذكر ومؤنث (أكثر من اسم واحد)'
+    )
+      return 'ذكور و اناث';
   }
 
   if (key === 'isAlive') {
     if (normalized === 'alive' || normalized === 'حي') return 'حي';
-    if (normalized === 'dead' || normalized === 'ميت') return 'ميت';
+    if (
+      normalized === 'dead' ||
+      normalized === 'deceased' ||
+      normalized === 'ميت' ||
+      normalized === 'متوفي'
+    )
+      return 'متوفي';
   }
 
   if (key === 'intention') {

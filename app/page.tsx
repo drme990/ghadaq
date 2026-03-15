@@ -83,7 +83,6 @@ export default async function HomePage() {
       />
       <Header />
       <main>
-        s
         <Hero />
         <div className="grid-bg">
           <OurWorks />

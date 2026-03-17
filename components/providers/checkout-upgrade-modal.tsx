@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Modal from '@/components/ui/modal';
 import Button from '@/components/ui/button';
 import { ArrowUpCircle, Users } from 'lucide-react';
@@ -22,15 +22,6 @@ interface UpgradeInfo {
   onAccept: () => void;
   onDecline: () => void;
   onTimerExpire?: () => void;
-}
-
-function formatRemaining(ms: number): string {
-  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-  const minutes = Math.floor(totalSeconds / 60)
-    .toString()
-    .padStart(2, '0');
-  const seconds = (totalSeconds % 60).toString().padStart(2, '0');
-  return `${minutes}:${seconds}`;
 }
 
 function getTimerParts(ms: number) {
@@ -74,17 +65,11 @@ export function CheckoutUpgradeModal({
 
   useEffect(() => {
     handledExpireRef.current = false;
-    if (!info?.discountDeadlineMs || info.upgradeDiscount <= 0) {
-      setRemainingMs(0);
-      return;
-    }
+    if (!info?.discountDeadlineMs || info.upgradeDiscount <= 0) return;
 
-    const tick = () => {
+    const interval = window.setInterval(() => {
       setRemainingMs(Math.max(0, info.discountDeadlineMs! - Date.now()));
-    };
-
-    tick();
-    const interval = window.setInterval(tick, 1000);
+    }, 1000);
 
     return () => {
       window.clearInterval(interval);

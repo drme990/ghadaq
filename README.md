@@ -2,59 +2,109 @@
 
 Public storefront for Ghadaq Association.
 
-## Last Updated
+## What This App Does
 
-- 2026-03-27
-
-## Release Notes
-
-- 2026-03-27: Added authentication pages and user settings.
-- 2026-03-19: Enhanced payment status page with additional payment details and localization.
-- 2026-03-18: Added pay-link token route handling and checkout UX refinements.
-- 2026-03-17: Updated payment handling with productSlug and custom pay-link route support.
-- 2026-03-16: Added retry-payment flow and improved payment status behavior.
-- 2026-03-15: Added richer input components (icons, multi-name improvements).
+- Presents the Ghadaq brand landing and product catalog.
+- Handles customer browsing, checkout, and payment status journey.
+- Collects reservation/customization data per product schema.
+- Supports referral attribution, coupons, and multi-currency display.
+- Integrates tracking (Facebook Pixel + server-side CAPI).
 
 ## Architecture
 
-- Next.js storefront application.
-- Calls shared backend APIs in apps_backend using /api rewrites/proxying.
-- Does not own canonical business logic or DB state.
+- Next.js App Router storefront.
+- Uses /api rewrites/proxy to apps_backend for all business operations.
+- Keeps domain logic in backend and focuses on customer UX.
 
 Flow:
 
-- Browser -> ghadaq -> /api/\* -> apps_backend -> MongoDB + payment gateway
+- Browser -> ghadaq -> /api/\* -> apps_backend -> MongoDB + EasyKash
 
-## Stack
+## Feature Inventory
 
-- Next.js 16.1.6
+### Landing and Content
+
+- Hero sections and brand storytelling blocks.
+- Dynamic sections driven by appearance settings.
+- Works gallery and informational site sections.
+- Arabic/English localized content with RTL/LTR support.
+
+### Catalog and Product Experience
+
+- Product listing pages and product details pages.
+- Product media rendering (images + videos).
+- Best-seller highlighting and stock-aware UX.
+- Dynamic pricing display by selected/active currency.
+
+### Checkout and Reservation
+
+- Multi-step checkout flow.
+- Billing/contact collection.
+- Country and currency selection.
+- Coupon validation and discount application.
+- Reservation dynamic fields rendering:
+- text, textarea, number, date, select, radio, picture.
+- Multi-name support for eligible reservation fields.
+- Blocked-date enforcement from backend booking config.
+- Optional partial-payment path when enabled by product.
+- Terms acceptance enforcement.
+
+### Payments and Post-Payment
+
+- EasyKash redirect flow.
+- Payment status page with localized states.
+- Retry behavior for incomplete/failed payment attempts.
+- Pay-link and custom pay-link route handling.
+
+### Referral and Tracking
+
+- Referral capture from URL and session persistence.
+- Referral assignment passed to checkout/order.
+- Facebook Pixel client events.
+- Facebook CAPI server events via backend endpoint.
+
+### SEO and Technical
+
+- robots.ts and sitemap.ts support.
+- Loading and not-found routes.
+- Internationalized routing.
+
+## Main Routes
+
+- /
+- /products
+- /products/[slug]
+- /checkout
+- /payment/status
+- /payment/pay-link/[token]
+- /payment/custom-pay-link/[token]
+- /calc-aqeqa
+- /privacy
+- /terms
+- /auth/login
+- /auth/register
+- /user
+
+## Tech Stack
+
+- Next.js 16
 - TypeScript
-- Tailwind v4
-- next-intl (ar/en)
-- next-themes
+- Tailwind CSS v4
+- next-intl
 - react-icons
 
-## Main Features
-
-- Bilingual storefront with RTL support.
-- Product browsing and checkout.
-- Reservation data collection and multi-name support.
-- Coupon support and referral tracking.
-- EasyKash payment redirect/status UX.
-- Retry flow for failed payments.
-- SEO routes (robots/sitemap) and landing sections.
-
-## Environment
+## Environment Variables
 
 Create ghadaq/.env.local:
 
 ```env
 BACKEND_URL=http://localhost:3000
 BASE_URL=http://localhost:3002
+
 NEXT_PUBLIC_FB_PIXEL_ID=
-API_TOKEN=
 FB_PIXEL_ID=
 FB_TEST_EVENT_CODE=
+API_TOKEN=
 ```
 
 ## Scripts
@@ -64,7 +114,7 @@ FB_TEST_EVENT_CODE=
 - npm start
 - npm run lint
 
-## Run Locally
+## Local Development
 
 ```bash
 cd ghadaq
@@ -78,5 +128,5 @@ Default local URL:
 
 ## Integration Notes
 
-- Orders from this app are source-tagged as ghadaq in backend.
-- Keep payment behavior aligned with backend lifecycle and status contracts.
+- Orders from this storefront are source-tagged as ghadaq in backend.
+- Pricing, coupons, reservations, and payment truth come from apps_backend.

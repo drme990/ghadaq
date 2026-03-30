@@ -97,10 +97,10 @@ export default function Footer() {
               <p>
                 {tf('emailLabel')}:{' '}
                 <Link
-                  href="mailto:info@ghadqplus.com"
+                  href="mailto:info@ghadaqplus.com"
                   className="hover:text-success transition-colors"
                 >
-                  info@ghadqplus.com
+                  info@ghadaqplus.com
                 </Link>
               </p>
               <p className="text-foreground text-sm">

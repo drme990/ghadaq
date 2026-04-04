@@ -27,6 +27,7 @@ export interface OrderWhatsappData {
     name: string;
     phone: string;
   } | null;
+  referralId?: string | null;
 }
 
 /**
@@ -72,6 +73,7 @@ function cleanPhone(phone: string): string {
  */
 export function buildOrderWhatsappMessage(data: OrderWhatsappData): string {
   const { reservationMap } = data;
+  console.log(data);
 
   const intention = normalizeReservationOptionValue(
     'intention',
@@ -147,8 +149,9 @@ export function buildOrderWhatsappMessage(data: OrderWhatsappData): string {
   lines.push(data.billingData.fullName);
   lines.push(`📨ايميل: ${data.billingData.email}`);
   lines.push(`واتساب: ${data.billingData.phone}`);
-  if (data.referenceCode?.trim()) {
-    lines.push(`Ref Code: ${data.referenceCode.trim()}`);
+  if (data.referralId?.trim()) {
+    lines.push(DIVIDER);
+    lines.push(`Ref Code: ${data.referralId.trim()}`);
   }
 
   if (firstItem && firstItem.quantity === 1 && lines[0].startsWith('1 ')) {

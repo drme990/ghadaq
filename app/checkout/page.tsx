@@ -1457,18 +1457,18 @@ function CheckoutContent() {
                         placeholder={t('couponPlaceholder')}
                         dir="ltr"
                       />
-                      <button
+                      <Button
                         type="button"
                         onClick={handleApplyCoupon}
                         disabled={couponLoading || !couponCode.trim()}
-                        className="w-full px-4 py-2.5 bg-success text-white rounded-lg hover:bg-success/90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {couponLoading ? (
                           <Loader2 size={18} className="animate-spin mx-auto" />
                         ) : (
                           t('applyCoupon')
                         )}
-                      </button>
+                      </Button>
                       {couponError && (
                         <p className="text-xs text-error">{couponError}</p>
                       )}

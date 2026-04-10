@@ -38,7 +38,7 @@ function Counter({
       <div className="flex items-center gap-3">
         <button
           onClick={onIncrement}
-          className="w-8 h-8 rounded-full bg-success flex items-center justify-center text-white hover:bg-success/80 transition-colors shadow"
+          className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/80 transition-colors shadow"
         >
           <LuPlus size={16} />
         </button>
@@ -48,7 +48,7 @@ function Counter({
         <button
           onClick={onDecrement}
           disabled={value === 0}
-          className="w-8 h-8 rounded-full bg-success flex items-center justify-center text-white hover:bg-success/80 transition-colors shadow disabled:opacity-40 disabled:cursor-not-allowed"
+          className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/80 transition-colors shadow disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <LuMinus size={16} />
         </button>
@@ -312,12 +312,12 @@ function AqeqaCalcInner() {
                         onClick={() => setSelectedSizeIndex(idx)}
                         className={`rounded-site border p-3 text-start transition-all ${
                           isSelected
-                            ? 'border-success bg-success/10'
-                            : 'border-stroke hover:border-success/50'
+                            ? 'border-primary bg-primary/10'
+                            : 'border-stroke hover:border-primary/50'
                         }`}
                       >
                         <p
-                          className={`text-lg font-bold ${isSelected ? 'text-success' : 'text-foreground'}`}
+                          className={`text-lg font-bold ${isSelected ? 'text-primary' : 'text-foreground'}`}
                         >
                           {currency}&nbsp;{amount.toLocaleString()}
                         </p>

@@ -9,6 +9,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { Suspense } from 'react';
 import './globals.css';
 import MetaPixel from '@/components/shared/meta-pixel';
+import BlockedAccountNotice from '@/components/shared/blocked-account-notice';
 
 // Satoshi font for English
 const satoshi = localFont({
@@ -231,7 +232,10 @@ export default async function RootLayout({
             <CurrencyProvider>
               <AppearanceProvider>
                 <Suspense>
-                  <ReferralProvider>{children}</ReferralProvider>
+                  <ReferralProvider>
+                    <BlockedAccountNotice />
+                    {children}
+                  </ReferralProvider>
                 </Suspense>
               </AppearanceProvider>
             </CurrencyProvider>

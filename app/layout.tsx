@@ -1,18 +1,21 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import OurThemeProvider from '@/components/providers/theme-provider';
-import { CurrencyProvider } from '@/components/providers/currency-provider';
-import ReferralProvider from '@/components/providers/referral-provider';
-import { AppearanceProvider } from '@/components/providers/appearance-provider';
-import { AudioPlayerProvider } from '@/components/providers/audio-player-provider';
-import SmoothScrollProvider from '@/components/providers/scroll-provider';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
 import { Suspense } from 'react';
 import { headers } from 'next/headers';
-import './globals.css';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
+
 import MetaPixel from '@/components/shared/meta-pixel';
+import ReferralProvider from '@/components/providers/referral-provider';
+import OurThemeProvider from '@/components/providers/theme-provider';
 import BlockedAccountNotice from '@/components/shared/blocked-account-notice';
+import OutstandingBalanceWarning from '@/components/shared/outstanding-balance-warning';
+import { AppearanceProvider } from '@/components/providers/appearance-provider';
+import { CurrencyProvider } from '@/components/providers/currency-provider';
+import { AudioPlayerProvider } from '@/components/providers/audio-player-provider';
+import SmoothScrollProvider from '@/components/providers/scroll-provider';
+
+import './globals.css';
 
 // Satoshi font for English
 const satoshi = localFont({
@@ -263,6 +266,7 @@ export default async function RootLayout({
                     <Suspense>
                       <ReferralProvider>
                         <BlockedAccountNotice />
+                        <OutstandingBalanceWarning />
                         {children}
                       </ReferralProvider>
                     </Suspense>

@@ -64,6 +64,9 @@ export default function RegisterPage() {
           setError(t('errors.emailAlreadyUsed'));
         } else if (payload?.code === 'PHONE_ALREADY_USED') {
           setError(t('errors.phoneAlreadyUsed'));
+        } else if (payload?.code === 'IP_BANNED' || payload?.code === 'BANNED_IP') {
+          // Show generic message for IP ban
+          setError(t('errors.registrationFailed'));
         } else {
           setError(payload?.error || t('errors.generic'));
         }

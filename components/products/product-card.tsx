@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Product, getPrimaryProductImageUrl } from '@/types/Product';
-import ProductPrice from '@/components/shared/product-price';
+import ProductPrice from '@/components/products/product-price';
 import Button from '@/components/ui/button';
 import { Users } from 'lucide-react';
 
@@ -100,7 +100,9 @@ export default function ProductCard({
               )}
 
               {label && (
-                <span className={`absolute top-3 rounded-full bg-orange-600 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white ${isBestSeller ? 'end-3' : 'start-3'}`}>
+                <span
+                  className={`absolute top-3 rounded-full bg-orange-600 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white ${isBestSeller ? 'end-3' : 'start-3'}`}
+                >
                   {label}
                 </span>
               )}

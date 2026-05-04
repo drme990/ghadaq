@@ -109,6 +109,8 @@ export interface Product {
   inStock: boolean;
   isBestSeller?: boolean;
   label?: { ar: string; en: string } | null;
+  /** Whether this product appears in all label filters. Default: false */
+  showAlways?: boolean;
   /** Whether the product is published (visible to customers). Default: true */
   isActive: boolean;
   /** Whether paying half is available for this product. Default: true */

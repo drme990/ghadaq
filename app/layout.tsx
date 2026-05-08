@@ -208,12 +208,7 @@ export const metadata: Metadata = {
   },
 };
 
-const COUNTRY_HEADER_CANDIDATES = [
-  'x-vercel-ip-country',
-  'cf-ipcountry',
-  'cloudfront-viewer-country',
-  'x-country-code',
-] as const;
+const VERCEL_COUNTRY_HEADER = 'x-vercel-ip-country';
 
 function normalizeCountryCode(raw: string | null): string | null {
   if (!raw) return null;
@@ -225,11 +220,8 @@ function normalizeCountryCode(raw: string | null): string | null {
 
 async function getIpCountryFromHeaders(): Promise<string | null> {
   const headerList = await headers();
-  for (const headerName of COUNTRY_HEADER_CANDIDATES) {
-    const code = normalizeCountryCode(headerList.get(headerName));
-    if (code) return code;
-  }
-  return null;
+  const code = normalizeCountryCode(headerList.get(VERCEL_COUNTRY_HEADER));
+  return code;
 }
 
 export default async function RootLayout({

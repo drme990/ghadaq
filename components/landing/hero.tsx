@@ -27,6 +27,9 @@ export default function Hero() {
             size="md"
             className="w-full md:w-auto"
             href="/products"
+            data-ref-track-action="navigate_products"
+            data-ref-track-button-label={tc('orderNow')}
+            data-ref-track-meta={JSON.stringify({ source: 'hero' })}
           >
             {tc('orderNow')}
           </Button>

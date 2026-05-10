@@ -8,7 +8,7 @@ export default function LangToggle() {
 
   const toggleLang = () => {
     const newLocale = locale === 'ar' ? 'en' : 'ar';
-    document.cookie = `GHADQ_LOCALE=${newLocale}; path=/; max-age=31536000`;
+    document.cookie = `GHADAQ_LOCALE=${newLocale}; path=/; max-age=31536000`;
     window.location.reload();
   };
 

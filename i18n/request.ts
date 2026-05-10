@@ -2,7 +2,7 @@ import { getRequestConfig } from 'next-intl/server';
 import { cookies } from 'next/headers';
 
 export default getRequestConfig(async () => {
-  const cookieLocale = (await cookies()).get('GHADQ_LOCALE')?.value || 'ar';
+  const cookieLocale = (await cookies()).get('GHADAQ_LOCALE')?.value || 'ar';
 
   const locale = cookieLocale;
 

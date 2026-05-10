@@ -11,7 +11,7 @@ export default function OurThemeProvider({
       themes={['light', 'dark']}
       enableSystem={false}
       defaultTheme="dark"
-      storageKey="ghadq-theme"
+      storageKey="ghadaq-theme"
     >
       {children}
     </ThemeProvider>

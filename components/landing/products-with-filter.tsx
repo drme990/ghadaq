@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Product } from '@/types/Product';
 import ProductCard from '@/components/products/product-card';
@@ -19,47 +19,53 @@ export default function LandingProductsWithFilter({
 }: LandingProductsWithFilterProps) {
   const t = useTranslations('labels');
   const currentLocale = useLocale();
-  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   // Extract unique labels from products
   const availableLabels = useMemo(() => {
     return products.reduce((acc, product) => {
       const label = product.label?.[currentLocale as 'ar' | 'en'];
+
       if (label && !acc.includes(label)) {
         acc.push(label);
       }
+
       return acc;
     }, [] as string[]);
   }, [products, currentLocale]);
 
+  // Load initial value from localStorage
+  const [storedLabel, setStoredLabel] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+
+    return localStorage.getItem(STORAGE_KEY);
+  });
+
+  // Validate selected label WITHOUT useEffect
+  const selectedLabel = useMemo(() => {
+    if (!storedLabel) return null;
+
+    if (storedLabel === '__daily__') {
+      return storedLabel;
+    }
+
+    return availableLabels.includes(storedLabel) ? storedLabel : null;
+  }, [storedLabel, availableLabels]);
+
   const hasProductsWithLabels = availableLabels.length > 0;
 
-  // Load saved filter from localStorage on mount
-  useEffect(() => {
-    const savedLabel = localStorage.getItem(STORAGE_KEY);
-    if (savedLabel) {
-      if (savedLabel === '__daily__' || availableLabels.includes(savedLabel)) {
-        setSelectedLabel(savedLabel);
-      }
-    }
-    setIsLoaded(true);
-  }, [availableLabels]);
-
-  // Filter products based on selected label - includes showAlways products
+  // Filter products
   const filteredProducts = useMemo(() => {
     if (selectedLabel === null) {
-      // No filter selected - show ALL products
       return products;
     }
+
     if (selectedLabel === '__daily__') {
-      // Show products without labels OR showAlways products
       return products.filter(
         (product) =>
           product.showAlways || !product.label?.[currentLocale as 'ar' | 'en'],
       );
     }
-    // Show products with the selected label OR showAlways products
+
     return products.filter(
       (product) =>
         product.showAlways ||
@@ -68,7 +74,8 @@ export default function LandingProductsWithFilter({
   }, [products, selectedLabel, currentLocale]);
 
   const handleSelectLabel = (label: string | null) => {
-    setSelectedLabel(label);
+    setStoredLabel(label);
+
     if (label === null) {
       localStorage.removeItem(STORAGE_KEY);
     } else {
@@ -76,7 +83,7 @@ export default function LandingProductsWithFilter({
     }
   };
 
-  // Don't show filter if no products have labels
+  // No filters available
   if (!hasProductsWithLabels) {
     return (
       <div className="relative">
@@ -102,7 +109,7 @@ export default function LandingProductsWithFilter({
       {/* Filter Tabs */}
       <div className="mb-4">
         <div className="flex flex-wrap gap-2" style={{ minHeight: '36px' }}>
-          {/* Show All Tab */}
+          {/* Show All */}
           <button
             onClick={() => handleSelectLabel(null)}
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
@@ -114,7 +121,7 @@ export default function LandingProductsWithFilter({
             {t('showAll')}
           </button>
 
-          {/* Daily Tab */}
+          {/* Daily */}
           <button
             onClick={() => handleSelectLabel('__daily__')}
             className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
@@ -126,7 +133,7 @@ export default function LandingProductsWithFilter({
             {t('daily')}
           </button>
 
-          {/* Label Tabs */}
+          {/* Labels */}
           {availableLabels.map((label) => (
             <button
               key={label}
@@ -143,7 +150,7 @@ export default function LandingProductsWithFilter({
         </div>
       </div>
 
-      {/* Products Carousel */}
+      {/* Products */}
       {filteredProducts.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-12 text-center">
           <p className="text-secondary text-base">
@@ -151,7 +158,12 @@ export default function LandingProductsWithFilter({
               ? 'No regular products available'
               : `No products with label "${selectedLabel}"`}
           </p>
-          <Button variant="outline" onClick={() => handleSelectLabel(null)} className="mt-4">
+
+          <Button
+            variant="outline"
+            onClick={() => handleSelectLabel(null)}
+            className="mt-4"
+          >
             {t('showAll')}
           </Button>
         </div>
@@ -172,7 +184,6 @@ export default function LandingProductsWithFilter({
           </div>
         </div>
       )}
-
     </>
   );
 }

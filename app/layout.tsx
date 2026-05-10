@@ -129,7 +129,7 @@ export const metadata: Metadata = {
     'حفر الآبار',
     'وكالة شرعية',
     'تنفيذ الشعائر',
-    'ghadq',
+    'ghadaq',
     'manasik',
     'umrah by proxy',
     'hajj by proxy',

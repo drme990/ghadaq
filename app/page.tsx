@@ -16,7 +16,7 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'مؤسسة غدق',
-  alternateName: 'Ghadq Association',
+  alternateName: 'Ghadaq Association',
   url: 'https://www.ghadaqplus.com',
   logo: 'https://www.ghadaqplus.com/logo-light.png',
   description:

@@ -37,7 +37,7 @@ export const CurrencyContext = createContext<CurrencyContextType | null>(null);
 
 const STORAGE_KEY = 'ghadaq-selected-currency';
 const STORAGE_SOURCE_KEY = 'ghadaq-selected-currency-source';
-const HOME_COUNTRY_KEY = 'user-home-country';
+const HOME_COUNTRY_KEY = 'ghadaq-home-country';
 const FALLBACK_COUNTRY_CODE = 'OT';
 type CurrencySelectionSource = 'auto' | 'manual';
 

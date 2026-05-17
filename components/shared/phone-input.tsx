@@ -6,6 +6,7 @@ import { ChevronDown, Search, Check } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { COUNTRIES, type Country } from '@/lib/countries';
+import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js';
 
 interface PhoneInputProps {
   id?: string;
@@ -17,6 +18,7 @@ interface PhoneInputProps {
   disabled?: boolean;
   required?: boolean;
   placeholder?: string;
+  validateOnChange?: boolean;
 }
 
 const parsePhoneValue = (value: string) => {
@@ -54,6 +56,7 @@ export default function PhoneInput({
   disabled = false,
   required = false,
   placeholder,
+  validateOnChange = false,
 }: PhoneInputProps) {
   const locale = useLocale();
   const t = useTranslations('common');
@@ -63,6 +66,7 @@ export default function PhoneInput({
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   /**
    * Derive state from value instead of syncing with useEffect
@@ -139,6 +143,26 @@ export default function PhoneInput({
     [onChange],
   );
 
+  // Validate phone number
+  const validatePhone = (phone: string): boolean => {
+    if (!phone) return false;
+    if (selectedCountry) {
+      try {
+        return isValidPhoneNumber(phone, selectedCountry.code as any);
+      } catch {
+        return false;
+      }
+    }
+    // If no country selected, try to validate without country code
+    try {
+      const parsed = parsePhoneNumber(phone);
+      return parsed?.isValid() ?? false;
+    } catch {
+      return false;
+    }
+  };
+
+  
   /**
    * Select country
    */
@@ -289,7 +313,9 @@ export default function PhoneInput({
       </div>
 
       {/* Error */}
-      {error && <p className="mt-1 text-sm text-error">{error}</p>}
+      {(error || validationError) && (
+        <p className="mt-1 text-sm text-error">{error || validationError}</p>
+      )}
     </div>
   );
 }

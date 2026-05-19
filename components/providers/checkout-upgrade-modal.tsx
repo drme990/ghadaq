@@ -110,6 +110,37 @@ export function CheckoutUpgradeModal({
   return (
     <Modal isOpen={!!info} onClose={handleDecline} title={t('title')} size="md">
       <div className="space-y-5">
+        {info.discountDeadlineMs &&
+          info.upgradeDiscount > 0 &&
+          remainingMs > 0 && (
+            <div className="rounded-site border border-success/20 bg-success/5 p-4">
+              <p className="text-center text-sm font-semibold text-foreground">
+                {t('offerEndsIn')}
+              </p>
+              <div
+                className="mt-3 flex items-center justify-center gap-3"
+                dir="ltr"
+              >
+                <div className="min-w-24 rounded-2xl bg-white py-3 text-center shadow-sm">
+                  <p className="text-4xl font-extrabold leading-none text-success">
+                    {timerParts.minutes}
+                  </p>
+                  <p className="mt-1 text-xs font-medium text-secondary">
+                    {t('minute')}
+                  </p>
+                </div>
+                <div className="min-w-24 rounded-2xl bg-white py-3 text-center shadow-sm">
+                  <p className="text-4xl font-extrabold leading-none text-success">
+                    {timerParts.seconds}
+                  </p>
+                  <p className="mt-1 text-xs font-medium text-secondary">
+                    {t('second')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
         <div className="flex items-center gap-3 p-3 bg-success/10 rounded-site border border-success/20">
           <ArrowUpCircle className="text-success shrink-0" size={20} />
           <p className="text-sm text-foreground">
@@ -123,29 +154,6 @@ export function CheckoutUpgradeModal({
             })}
           </p>
         </div>
-
-        {info.discountDeadlineMs &&
-          info.upgradeDiscount > 0 &&
-          remainingMs > 0 && (
-            <div className="mt-3 flex items-center justify-center gap-3">
-              <div className="min-w-24 rounded-2xl bg-white py-3 text-center shadow-sm">
-                <p className="text-4xl font-extrabold leading-none text-success">
-                  {timerParts.minutes}
-                </p>
-                <p className="mt-1 text-xs font-medium text-secondary">
-                  {t('minute')}
-                </p>
-              </div>
-              <div className="min-w-24 rounded-2xl bg-white py-3 text-center shadow-sm">
-                <p className="text-4xl font-extrabold leading-none text-success">
-                  {timerParts.seconds}
-                </p>
-                <p className="mt-1 text-xs font-medium text-secondary">
-                  {t('second')}
-                </p>
-              </div>
-            </div>
-          )}
 
         <div className="grid grid-cols-2 gap-3">
           <div className="border border-stroke rounded-site p-4 space-y-3 bg-background">

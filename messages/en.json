@@ -516,10 +516,20 @@
       "feedsUp": "Feeds up to {count} people",
       "features": "Features",
       "discount": "{percent}% off",
-      "offerEndsIn": "Offer ends in {time}",
+      "offerEndsIn": "Offer ends in",
       "minute": "Minute",
       "second": "Second",
       "accept": "Accept Upgrade",
+      "decline": "No Thanks"
+    },
+    "recommend": {
+      "title": "Recommended For You",
+      "description": "Would you like to add <highlight>{name}</highlight> to your order?",
+      "currentProduct": "Your Order",
+      "recommendedProduct": "Recommended Addition",
+      "feedsUp": "Feeds up to {count} people",
+      "content": "Description",
+      "accept": "Add to Order",
       "decline": "No Thanks"
     },
     "reservationMaxChars": "Maximum {max} characters"

@@ -516,10 +516,20 @@
       "feedsUp": "يُطعم حتى {count} شخص",
       "features": "الميزات",
       "discount": "خصم {percent}%",
-      "offerEndsIn": "ينتهي العرض خلال {time}",
+      "offerEndsIn": "ينتهي العرض خلال",
       "minute": "دقيقة",
       "second": "ثانية",
       "accept": "قبول الترقية",
+      "decline": "لا شكراً"
+    },
+    "recommend": {
+      "title": "مقترح لك",
+      "description": "هل ترغب في إضافة <highlight>{name}</highlight> إلى طلبك؟",
+      "currentProduct": "طلبك",
+      "recommendedProduct": "إضافة مقترحة",
+      "feedsUp": "يُطعم حتى {count} شخص",
+      "content": "الوصف",
+      "accept": "إضافة للطلب",
       "decline": "لا شكراً"
     },
     "reservationMaxChars": "الحد الأقصى {max} حرف"

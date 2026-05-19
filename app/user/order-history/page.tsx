@@ -20,19 +20,31 @@ import {
 import Button from '@/components/ui/button';
 import Loading from '@/components/ui/loading';
 
+interface OrderItem {
+  productId: string;
+  productSlug: string;
+  productName: {
+    ar: string;
+    en: string;
+  };
+  price: number;
+  currency: string;
+  quantity: number;
+  sizeIndex: number;
+  sizeName: {
+    ar: string;
+    en: string;
+  };
+}
+
 interface Order {
   _id: string;
   orderNumber: string;
-  product: {
-    name: string;
-    slug?: string;
-  };
-  quantity: number;
+  items: OrderItem[];
   fullAmount: number;
   paidAmount: number;
   remainingAmount: number;
   currency: string;
-  totalPrice: number;
   status: string;
   paymentStatus: string;
   isPartialPayment: boolean;
@@ -101,32 +113,53 @@ function OrderCard({ order, locale, payingOrderId, onPay }: OrderCardProps) {
         </div>
       </div>
 
-      {/* Product Section */}
-      <div className="flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-            <Package size={24} />
-          </div>
+      {/* Products Section */}
+      <div className="border-b border-stroke/50 p-6">
+        <p className="mb-4 text-xs uppercase tracking-wide text-secondary">
+          {t('fields.product')}
+        </p>
 
-          <div>
-            <p className="mb-1 text-xs uppercase tracking-wide text-secondary">
-              {t('fields.product')}
-            </p>
+        <div className="space-y-4">
+          {order.items && order.items.length > 0 ? (
+            order.items.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 rounded-2xl border border-stroke/40 bg-muted/20 p-4"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Package size={20} />
+                </div>
 
-            <h4 className="text-lg font-semibold text-foreground">
-              {order.product?.name || 'N/A'}
-            </h4>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-foreground">
+                    {locale === 'ar'
+                      ? item.productName?.ar || 'N/A'
+                      : item.productName?.en || 'N/A'}
+                  </h4>
 
-            <p className="mt-1 text-sm text-secondary">
-              {locale === 'ar' ? 'الكمية:' : 'Quantity:'}{' '}
-              <span className="font-medium text-foreground">
-                {order.quantity}
-              </span>
-            </p>
-          </div>
+                  <p className="mt-1 text-sm text-secondary">
+                    {locale === 'ar' ? 'الكمية:' : 'Quantity:'}{' '}
+                    <span className="font-medium text-foreground">
+                      {item.quantity}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="text-right">
+                  <p className="font-semibold text-foreground">
+                    {item.price} {item.currency}
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-secondary">N/A</p>
+          )}
         </div>
+      </div>
 
-        {/* Financial Overview */}
+      {/* Financial Overview */}
+      <div className="border-b border-stroke/50 p-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-stroke/40 bg-muted/20 p-4">
             <div className="mb-2 flex items-center gap-2 text-secondary">
@@ -175,7 +208,7 @@ function OrderCard({ order, locale, payingOrderId, onPay }: OrderCardProps) {
 
       {/* Actions */}
       {(order.canCompleteOrder || order.canPayRemainingAmount) && (
-        <div className="border-t border-stroke/50 p-6">
+        <div className="p-6">
           <Button
             onClick={() => onPay(order)}
             disabled={payingOrderId === order._id}
@@ -202,7 +235,7 @@ function OrderCard({ order, locale, payingOrderId, onPay }: OrderCardProps) {
   );
 }
 
-export default function OrdersHistoryPage() {
+export default function OrdersPage() {
   const t = useTranslations('auth.orders');
   const router = useRouter();
   const locale = useLocale();
@@ -218,13 +251,11 @@ export default function OrdersHistoryPage() {
     const fetchOrders = async () => {
       try {
         const response = await fetch('/api/orders/my-orders');
-
         if (!response.ok) {
           if (response.status === 401) {
             router.push('/auth/login');
             return;
           }
-
           throw new Error('Failed to fetch orders');
         }
 
@@ -242,7 +273,6 @@ export default function OrdersHistoryPage() {
 
   useEffect(() => {
     const orderNum = searchParams.get('orderNum');
-
     if (orderNum) {
       setSearch(orderNum);
     }
@@ -256,23 +286,20 @@ export default function OrdersHistoryPage() {
 
   const handlePayRemainingAmount = async (order: Order) => {
     setPayingOrderId(order._id);
-
     try {
       const response = await fetch('/api/payment/links', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          orderNumber: order.orderNumber,
-        }),
+        body: JSON.stringify({ orderNumber: order.orderNumber }),
       });
 
       const result = await response.json();
-
       if (!response.ok || !result.success) {
         setError(result.error || 'Failed to create payment link');
         return;
       }
 
+      // Redirect to EasyKash
       if (result.data?.redirectUrl) {
         window.location.href = result.data.redirectUrl;
       }
@@ -287,13 +314,11 @@ export default function OrdersHistoryPage() {
     return (
       <>
         <Header />
-
         <main className="min-h-[70vh] px-4 py-10 md:px-8">
           <Container>
             <Loading size="lg" />
           </Container>
         </main>
-
         <Footer />
       </>
     );

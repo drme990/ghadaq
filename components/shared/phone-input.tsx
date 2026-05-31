@@ -148,7 +148,10 @@ export default function PhoneInput({
     if (!phone) return false;
     if (selectedCountry) {
       try {
-        return isValidPhoneNumber(phone, selectedCountry.code as any);
+        return isValidPhoneNumber(
+          phone,
+          selectedCountry.code as Parameters<typeof isValidPhoneNumber>[1],
+        );
       } catch {
         return false;
       }
@@ -162,7 +165,6 @@ export default function PhoneInput({
     }
   };
 
-  
   /**
    * Select country
    */

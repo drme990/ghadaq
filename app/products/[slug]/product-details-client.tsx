@@ -9,6 +9,7 @@ import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import ProductMediaGallery from '@/components/products/product-media-gallery';
 import AudioCommentsPlayer from '@/components/shared/audio-comments-player';
+import FAQDisplay from '@/components/shared/faq-display';
 import { trackEvent } from '@/lib/fb-pixel';
 import { getStoredReferral } from '@/components/providers/referral-provider';
 import { useAppearance } from '@/components/providers/appearance-provider';
@@ -82,6 +83,15 @@ export default function ProductDetailsClient({
       />
 
       <AudioCommentsPlayer audioReviews={appearance.audioReviews} />
+
+      {appearance.faqs && appearance.faqs.length > 0 && (
+        <div className="space-y-4">
+          <h2 className="text-lg font-bold text-foreground">
+            {tCommon('faq.title')}
+          </h2>
+          <FAQDisplay platform="ghadaq" showOnProductDetails={true} />
+        </div>
+      )}
 
       <div className="flex items-start justify-between gap-4">
         <h1 className="text-xl md:text-2xl font-bold leading-tight">

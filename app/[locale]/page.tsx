@@ -11,6 +11,7 @@ import Header from '@/components/layout/header';
 import GoToTop from '@/components/shared/go-to-top';
 import WhatsAppButton from '@/components/shared/whats-app-button';
 import { Metadata } from 'next';
+import { getSeoMetadata } from '@/lib/seo';
 
 const orgJsonLd = {
   '@context': 'https://schema.org',
@@ -38,41 +39,42 @@ const orgJsonLd = {
   ],
 };
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'مؤسسة غدق | عمرة وحج وعقيقة وأضحية بالوكالة الشرعية',
-  },
-  description:
-    'مُؤسسة غدق - نُؤدي عنك بالوكالة الشرعية أداء العمرة، الحج، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار. خدمات موثوقة بتوثيق احترافي.',
-  keywords: [
-    'غدق',
-    'مناسك',
-    'عمرة البدل',
-    'حج البدل',
-    'عقيقة',
-    'أضحية',
-    'ذبح',
-    'نذر',
-    'صدقة',
-    'حفر آبار',
-    'وكالة شرعية',
-    'manasik',
-    'aqiqah',
-    'sacrifice',
-    'umrah proxy',
-    'hajj proxy',
-  ],
-  alternates: {
-    canonical: 'https://www.ghadaqplus.com',
-  },
-  openGraph: {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return getSeoMetadata({
+    locale,
+    path: '/',
     title: 'مؤسسة غدق | عمرة وحج وعقيقة وأضحية بالوكالة الشرعية',
-    description:
-      'نُؤدي عنك بالوكالة الشرعية: عمرة البدل، حج البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار. التزام شرعي وتوثيق احترافي.',
-    url: 'https://www.ghadaqplus.com',
-    type: 'website',
-  },
-};
+    description: 'مُؤسسة غدق - نُؤدي عنك بالوكالة الشرعية أداء العمرة، الحج، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار. خدمات موثوقة بتوثيق احترافي.',
+    keywords: [
+      'غدق',
+      'مناسك',
+      'عمرة البدل',
+      'حج البدل',
+      'عقيقة',
+      'أضحية',
+      'ذبح',
+      'نذر',
+      'صدقة',
+      'حفر آبار',
+      'وكالة شرعية',
+      'manasik',
+      'aqiqah',
+      'sacrifice',
+      'umrah proxy',
+      'hajj proxy',
+    ],
+    openGraph: {
+      title: 'مؤسسة غدق | عمرة وحج وعقيقة وأضحية بالوكالة الشرعية',
+      description: 'نُؤدي عنك بالوكالة الشرعية: عمرة البدل، حج البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار. التزام شرعي وتوثيق احترافي.',
+      type: 'website',
+    },
+  });
+}
 
 export default async function HomePage() {
   return (

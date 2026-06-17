@@ -6,7 +6,7 @@ import { validateReferral } from '@/lib/api/validateReferral';
 
 const STORAGE_KEY = 'ghadaq-ref';
 const COOKIE_KEY = 'ghadaq-ref';
-const DEFAULT_REF = 'default-GHD';
+const DEFAULT_REF = 'GHD-D';
 
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 90;
 

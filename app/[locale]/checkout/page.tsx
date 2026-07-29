@@ -471,10 +471,10 @@ function CheckoutContent() {
 
         const dates = Array.isArray(data.data?.blockedExecutionDates)
           ? data.data.blockedExecutionDates.filter((item: unknown) =>
-              typeof item === 'string'
-                ? /^\d{4}-\d{2}-\d{2}$/.test(item)
-                : false,
-            )
+            typeof item === 'string'
+              ? /^\d{4}-\d{2}-\d{2}$/.test(item)
+              : false,
+          )
           : [];
 
         setBlockedExecutionDates(dates);
@@ -1258,29 +1258,11 @@ function CheckoutContent() {
     }
   };
 
-  const handlePictureChange = (idx: number, file: File | null) => {
-    if (!file) {
-      setReservationData((prev) => ({ ...prev, [idx]: '' }));
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = typeof reader.result === 'string' ? reader.result : '';
-      setReservationData((prev) => ({ ...prev, [idx]: result }));
-    };
-    reader.readAsDataURL(file);
-  };
-
   const handleReservationValueChange = (idx: number, value: string) => {
     setReservationData((prev) => ({
       ...prev,
       [idx]: value,
     }));
-  };
-
-  const handleReservationFileChange = (idx: number, file: File | null) => {
-    handlePictureChange(idx, file);
   };
 
   const handleEnableCustomPayment = () => {
@@ -1462,9 +1444,9 @@ function CheckoutContent() {
     getPrimaryProductImageUrl(product) || product.media[0].url;
   const selectedSizeName =
     sizeIndex !== null &&
-    product.sizes &&
-    sizeIndex >= 0 &&
-    sizeIndex < product.sizes.length
+      product.sizes &&
+      sizeIndex >= 0 &&
+      sizeIndex < product.sizes.length
       ? locale === 'ar'
         ? product.sizes[sizeIndex].name.ar
         : product.sizes[sizeIndex].name.en
@@ -1622,7 +1604,6 @@ function CheckoutContent() {
                   }
                   onSubmit={handleSubmit}
                   onReservationValueChange={handleReservationValueChange}
-                  onReservationFileChange={handleReservationFileChange}
                 />
               )}
             </div>

@@ -32,7 +32,6 @@ export async function generateMetadata({
       'عقيقة',
       'أضاحي',
       'عمرة البدل',
-      'حج البدل',
       'خدمات دينية',
     ],
     openGraph: {
@@ -82,7 +81,7 @@ export default async function ProductsPage() {
     '@type': 'ItemList',
     name: 'منتجات مُؤسسة غدق',
     description:
-      'تصفح جميع خدمات مؤسسة غدق: عمرة البدل، حج البدل، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار.',
+      'تصفح جميع خدمات مؤسسة غدق: عمرة البدل، العقيقة، الأضاحي، النذر، الصدقة، وحفر الآبار.',
     url: 'https://www.ghadaqplus.com/products',
     numberOfItems: productsWithSlug.length,
     itemListElement: productsWithSlug.map((product, index) => ({

@@ -36,6 +36,7 @@ import {
   SearchX,
   LucideIcon,
 } from 'lucide-react';
+import Link from 'next/link';
 
 type StatusConfigEntry = StatusViewConfig & { icon: LucideIcon };
 
@@ -267,11 +268,11 @@ function PaymentStatusContent() {
     });
 
   const whatsappHref =
-    status === 'failed' || isCustomPayLinkPayment
+    (status === 'failed' || isCustomPayLinkPayment
       ? buildSupportWhatsappLink()
       : isSuccessLike
         ? whatsappData?.href
-        : undefined;
+        : undefined) ?? undefined;
   const canRetryPayment =
     status === 'failed' && Boolean(orderData?.items?.length);
 
@@ -396,12 +397,12 @@ function PaymentStatusContent() {
                   </span>
                 </p>
               )}
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-text font-medium hover:bg-primary/90 transition-colors"
               >
                 {t('notFound.backHome') || 'Back to Home'}
-              </a>
+              </Link>
             </div>
           </Container>
         </main>

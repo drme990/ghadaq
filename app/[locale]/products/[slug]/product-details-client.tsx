@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Minus, Plus, PackageX, Users } from 'lucide-react';
 import { Product, getProductMediaUrls } from '@/types/Product';
-import { usePriceInCurrency } from '@/hooks/currency-hook';
+import { usePriceInCurrency, useCurrency } from '@/hooks/currency-hook';
 import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import ProductMediaGallery from '@/components/products/product-media-gallery';
@@ -26,6 +26,7 @@ export default function ProductDetailsClient({
   const tCommon = useTranslations('common');
   const locale = useLocale();
   const getPrice = usePriceInCurrency();
+  const { isLoading: currencyLoading } = useCurrency();
   const { appearance } = useAppearance();
 
   const isAr = locale === 'ar';
@@ -57,11 +58,16 @@ export default function ProductDetailsClient({
 
   const getSizePrice = (index: number) => {
     const size = product.sizes[index] ?? product.sizes[0];
-    return getPrice(size.prices ?? [], size.price ?? 0, product.baseCurrency);
+    return getPrice(
+      size.resolvedPrices ?? size.prices ?? [],
+      size.price ?? 0,
+      product.baseCurrency,
+    );
   };
 
   const activePrice = getSizePrice(selectedSize);
   const feedsUp = product.sizes[selectedSize]?.feedsUp ?? 0;
+  const priceLoading = currencyLoading || !activePrice;
   const isSelectedUnavailable =
     product.sizes[selectedSize]?.isAvailable === false;
 
@@ -88,9 +94,13 @@ export default function ProductDetailsClient({
           {isAr ? product.name.ar : product.name.en}
         </h1>
         <div className="text-end">
-          <span className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap block">
-            {activePrice.amount.toLocaleString()} {activePrice.currency}
-          </span>
+          {priceLoading ? (
+            <div className="h-8 w-32 rounded bg-primary animate-pulse" />
+          ) : (
+            <span className="text-primary font-bold text-xl md:text-2xl whitespace-nowrap block">
+              {activePrice!.amount.toLocaleString()} {activePrice!.currency}
+            </span>
+          )}
           <p className="text-xs text-secondary mt-1">{t('taxIncluded')}</p>
         </div>
       </div>
@@ -215,9 +225,9 @@ export default function ProductDetailsClient({
       >
         <p className="text-sm leading-7 text-foreground whitespace-pre-line">
           {appearance.documentationAnswer &&
-          (isAr
-            ? appearance.documentationAnswer.ar
-            : appearance.documentationAnswer.en)
+            (isAr
+              ? appearance.documentationAnswer.ar
+              : appearance.documentationAnswer.en)
             ? isAr
               ? appearance.documentationAnswer.ar
               : appearance.documentationAnswer.en

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Container from '@/components/layout/container';
@@ -16,6 +16,7 @@ export default function SettingsPage() {
   const t = useTranslations('auth.settings');
   const checkoutT = useTranslations('checkout');
   const router = useRouter();
+  const pathname = usePathname();
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -36,7 +37,7 @@ export default function SettingsPage() {
         const response = await fetch('/api/customer/ghadaq/profile');
         if (!response.ok) {
           if (response.status === 401) {
-            router.push('/auth/login');
+            router.push(`/auth/login?callback=${encodeURIComponent(pathname)}`);
             return;
           }
           throw new Error('Failed to fetch user data');
@@ -56,7 +57,7 @@ export default function SettingsPage() {
     };
 
     fetchUserData();
-  }, [router]);
+  }, [router, pathname]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +78,7 @@ export default function SettingsPage() {
           setSaving(false);
           return;
         }
-      } catch (err) {
+      } catch {
         setError(checkoutT('invalidWhatsAppPhone') || 'Invalid phone number format');
         setSaving(false);
         return;

@@ -60,10 +60,8 @@ export default function PhoneInput({
 }: PhoneInputProps) {
   const locale = useLocale();
   const t = useTranslations('common');
-
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
-
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [validationError, setValidationError] = useState<string | null>(null);
@@ -143,6 +141,42 @@ export default function PhoneInput({
     [onChange],
   );
 
+  /**
+   * Select country
+   */
+  const handleSelectCountry = (country: Country) => {
+    setIsOpen(false);
+    setSearchTerm('');
+
+    updatePhone(country, phoneNumber);
+  };
+
+  /**
+   * Handle phone input
+   */
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPhone = e.target.value; // Allow all input, filter later
+    if (selectedCountry) {
+      onChange(`+${selectedCountry.phoneCode}${newPhone}`);
+    } else {
+      onChange(newPhone);
+    }
+
+    // Validate on change if enabled
+    if (validateOnChange && newPhone) {
+      const fullPhone = selectedCountry
+        ? `+${selectedCountry.phoneCode}${newPhone}`
+        : newPhone;
+      if (!validatePhone(fullPhone)) {
+        setValidationError('Invalid phone number format');
+      } else {
+        setValidationError(null);
+      }
+    } else {
+      setValidationError(null);
+    }
+  };
+
   // Validate phone number
   const validatePhone = (phone: string): boolean => {
     if (!phone) return false;
@@ -163,23 +197,6 @@ export default function PhoneInput({
     } catch {
       return false;
     }
-  };
-
-  /**
-   * Select country
-   */
-  const handleSelectCountry = (country: Country) => {
-    setIsOpen(false);
-    setSearchTerm('');
-
-    updatePhone(country, phoneNumber);
-  };
-
-  /**
-   * Handle phone input
-   */
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updatePhone(selectedCountry, e.target.value);
   };
 
   return (
@@ -264,7 +281,7 @@ export default function PhoneInput({
 
                     return (
                       <button
-                        key={country.code}
+                        key={`${country.code}-${country.phoneCode}`}
                         type="button"
                         onClick={() => handleSelectCountry(country)}
                         className={cn(
@@ -314,7 +331,7 @@ export default function PhoneInput({
         />
       </div>
 
-      {/* Error */}
+      {/* Error Message */}
       {(error || validationError) && (
         <p className="mt-1 text-sm text-error">{error || validationError}</p>
       )}

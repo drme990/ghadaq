@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useSearchParams, usePathname } from 'next/navigation';
-import { useRouter } from '@/i18n/routing';
+import { useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/routing';
 import { validateReferral } from '@/lib/api/validateReferral';
 
 const STORAGE_KEY = 'ghadaq-ref';

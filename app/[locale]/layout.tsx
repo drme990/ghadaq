@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
 import MetaPixel from '@/components/shared/meta-pixel';
+import OpenAIPixel from '@/components/shared/openai-pixel';
 import ReferralProvider from '@/components/providers/referral-provider';
 import RefTrackerProvider from '@/components/providers/ref-tracker-provider';
 import OurThemeProvider from '@/components/providers/theme-provider';
@@ -297,6 +298,7 @@ export default async function RootLayout({
     >
       <head>
         <MetaPixel />
+        <OpenAIPixel />
       </head>
       <body
         className={`antialiased ${locale === 'ar' ? 'font-expo-arabic' : 'font-satoshi'}`}

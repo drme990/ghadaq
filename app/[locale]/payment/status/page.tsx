@@ -24,6 +24,7 @@ import {
   getHijriDateString,
 } from '@/lib/payment-utils';
 import { trackEvent } from '@/lib/fb-pixel';
+import { oaiqPurchase } from '@/lib/openai-pixel';
 
 import {
   CheckCircle,
@@ -174,10 +175,21 @@ function PaymentStatusContent() {
     if ((!isSuccessLike) || purchaseTracked.current) return;
     purchaseTracked.current = true;
 
+    const paidAmount = amount ? parseFloat(amount) : 0;
+    const eventCurrency = currency || 'SAR';
+    const orderId = displayOrderNumber || '';
+
     trackEvent('Purchase', {
-      value: amount ? parseFloat(amount) : 0,
-      currency: currency || 'SAR',
-      order_id: displayOrderNumber || undefined,
+      value: paidAmount,
+      currency: eventCurrency,
+      order_id: orderId || undefined,
+    });
+
+    // OpenAI Pixel — order_created (browser-side, deduped via orderId)
+    oaiqPurchase({
+      value: paidAmount,
+      currency: eventCurrency,
+      orderId,
     });
   }, [isSuccessLike, amount, currency, displayOrderNumber]);
 

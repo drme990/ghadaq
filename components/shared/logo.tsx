@@ -2,13 +2,17 @@
 
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 
 export default function Logo() {
+  const locale = useLocale();
+  const alt = locale === 'ar' ? 'مؤسسة غدق' : 'Ghadaq Plus';
+
   return (
     <Link href="/" className="block w-fit">
       <Image
         src="/logo-light.png"
-        alt="مؤسسة غدق"
+        alt={alt}
         width={120}
         height={40}
         className="dark:hidden"
@@ -16,10 +20,10 @@ export default function Logo() {
       />
       <Image
         src="/logo-dark.png"
-        alt="مؤسسة غدق"
+        alt={alt}
         width={120}
         height={40}
-        className="hidden dark:block"
+        className="hidden dark:block h-auto!"
         priority
       />
     </Link>

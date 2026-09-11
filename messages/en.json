@@ -815,5 +815,53 @@
         "total": "Total Price"
       }
     }
+  },
+  "seo": {
+    "home": {
+      "title": "Ghadaq Plus | Umrah, Aqiqah & Qurbani by Proxy",
+      "description": "Ghadaq Plus performs religious services on your behalf with legal proxy: Umrah Badal, Aqiqah, Qurbani, Sadaqah, and water wells. Trusted service with professional documentation."
+    },
+    "calcAqeqa": {
+      "title": "Aqiqah Calculator | Ghadaq Plus",
+      "description": "Calculate the number of sacrifices needed for Aqiqah easily. Ghadaq Plus calculator determines the number of animals based on the number of boys and girls."
+    },
+    "checkout": {
+      "title": "Checkout | Ghadaq Plus",
+      "description": "Complete your order securely with Ghadaq Plus."
+    },
+    "login": {
+      "title": "Login | Ghadaq Plus",
+      "description": "Sign in to your Ghadaq Plus account to manage orders and payments."
+    },
+    "register": {
+      "title": "Create Account | Ghadaq Plus",
+      "description": "Register a Ghadaq Plus account to start placing orders for religious services."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password | Ghadaq Plus",
+      "description": "Reset your Ghadaq Plus account password."
+    },
+    "resetPassword": {
+      "title": "Reset Password | Ghadaq Plus",
+      "description": "Set a new password for your Ghadaq Plus account."
+    },
+    "notFound": {
+      "title": "Page Not Found | Ghadaq Plus",
+      "description": "The page you are looking for does not exist."
+    },
+    "organization": {
+      "name": "Ghadaq Plus",
+      "description": "Ghadaq Plus performs religious services on your behalf with legal proxy: Umrah Badal, Aqiqah, Qurbani, Sadaqah, and water wells."
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "services": "Services",
+      "products": "Products",
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact",
+      "reviews": "Reviews",
+      "authors": "Authors"
+    }
   }
 }

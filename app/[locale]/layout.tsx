@@ -124,8 +124,8 @@ export async function generateMetadata({
     ? 'مؤسسة غدق | أداء الشعائر والنُسك بالوكالة الشرعية'
     : 'Ghadaq Plus | Religious Services by Proxy — Umrah, Aqiqah, Qurbani';
   const description = isAr
-    ? 'مؤسسة غدق - نُؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار ووصلات المياه. التزام شرعي، جودة عالية، وتوثيق احترافي يطمئن القلب.'
-    : 'Ghadaq Plus — We perform religious services on your behalf with legal proxy: Umrah Badal, Aqiqah, Qurbani, Sadaqah, and water wells. Trusted service with professional documentation.';
+    ? 'مؤسسة غدق تؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، والصدقة. التزام شرعي كامل وتوثيق احترافي يطمئن القلب.'
+    : 'Ghadaq Plus performs Umrah Badal, Aqiqah, Qurbani, and Sadaqah on your behalf with legal proxy. Trusted service with professional documentation.';
   const ogLocale = isAr ? 'ar_SA' : 'en_US';
   const ogAlternateLocale = isAr ? ['en_US'] : ['ar_SA'];
 
@@ -187,8 +187,8 @@ export async function generateMetadata({
       siteName: orgName,
       title: titleDefault,
       description: isAr
-        ? 'نُؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار. التزام شرعي وتوثيق احترافي.'
-        : 'We perform religious services on your behalf with legal proxy: Umrah Badal, Aqiqah, Qurbani, Sadaqah, and water wells.',
+        ? 'مؤسسة غدق تؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، والصدقة. التزام شرعي كامل وتوثيق احترافي يطمئن القلب.'
+        : 'Ghadaq Plus performs Umrah Badal, Aqiqah, Qurbani, and Sadaqah on your behalf with legal proxy. Trusted service with professional documentation.',
       images: [
         {
           url: '/logo-light.png',
@@ -202,8 +202,8 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: titleDefault,
       description: isAr
-        ? 'نُؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، النذر، الصدقة، حفر الآبار. التزام شرعي وتوثيق احترافي.'
-        : 'We perform religious services on your behalf with legal proxy: Umrah, Aqiqah, Qurbani, Sadaqah, and water wells.',
+        ? 'مؤسسة غدق تؤدي عنك بالوكالة الشرعية: عمرة البدل، العقيقة، الأضاحي، والصدقة. التزام شرعي كامل وتوثيق احترافي يطمئن القلب.'
+        : 'Ghadaq Plus performs Umrah Badal, Aqiqah, Qurbani, and Sadaqah on your behalf with legal proxy. Trusted service with professional documentation.',
       images: ['/logo-light.png'],
     },
     robots: {

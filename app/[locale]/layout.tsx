@@ -6,7 +6,9 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 
 import MetaPixel from '@/components/shared/meta-pixel';
+import TiktokPixel from '@/components/shared/tiktok-pixel';
 import OpenAIPixel from '@/components/shared/openai-pixel';
+import GTM, { GTMNoScript } from '@/components/shared/gtm';
 import ReferralProvider from '@/components/providers/referral-provider';
 import RefTrackerProvider from '@/components/providers/ref-tracker-provider';
 import OurThemeProvider from '@/components/providers/theme-provider';
@@ -335,12 +337,15 @@ export default async function RootLayout({
     >
       <head>
         <MetaPixel />
+        <TiktokPixel />
         <OpenAIPixel />
+        <GTM />
       </head>
       <body
         className={`antialiased ${locale === 'ar' ? 'font-expo-arabic' : 'font-satoshi'}`}
         suppressHydrationWarning
       >
+        <GTMNoScript />
         <SmoothScrollProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <OurThemeProvider>

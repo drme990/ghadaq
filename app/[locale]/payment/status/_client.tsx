@@ -24,7 +24,10 @@ import {
   getHijriDateString,
 } from '@/lib/payment-utils';
 import { trackEvent } from '@/lib/fb-pixel';
+import { ttqPurchase } from '@/lib/tiktok-pixel';
 import { oaiqPurchase } from '@/lib/openai-pixel';
+import { snapPurchase } from '@/lib/snapchat-pixel';
+import { gtmPurchase } from '@/lib/gtm';
 
 import {
   CheckCircle,
@@ -172,26 +175,111 @@ function PaymentStatusContent() {
 
   // ── FB Pixel: Purchase (fire once on successful payment) ───────────────────
   useEffect(() => {
-    if ((!isSuccessLike) || purchaseTracked.current) return;
-    purchaseTracked.current = true;
+    if (!isSuccessLike || purchaseTracked.current) return;
 
     const paidAmount = amount ? parseFloat(amount) : 0;
-    const eventCurrency = currency || 'SAR';
+    if (!paidAmount || paidAmount <= 0) return;
+
     const orderId = displayOrderNumber || '';
+    if (!orderId) return;
 
-    trackEvent('Purchase', {
-      value: paidAmount,
-      currency: eventCurrency,
-      order_id: orderId || undefined,
-    });
+    // Cross-session guard: skip if we already fired Purchase for this
+    // order from this browser. The ad platforms would dedupe via
+    // event_id anyway, but this avoids the extra requests.
+    const fbKey = `fb_purchase_sent_${orderId}`;
+    // Shared flag for TikTok/OpenAI/Snap/GTM — they always fire
+    // together in this effect, so one key covers all four.
+    const restKey = `purchase_sent_${orderId}`;
+    const fbAlreadySent =
+      typeof window !== 'undefined' && localStorage.getItem(fbKey) === '1';
+    const restAlreadySent =
+      typeof window !== 'undefined' && localStorage.getItem(restKey) === '1';
 
-    // OpenAI Pixel — order_created (browser-side, deduped via orderId)
-    oaiqPurchase({
-      value: paidAmount,
-      currency: eventCurrency,
-      orderId,
-    });
-  }, [isSuccessLike, amount, currency, displayOrderNumber]);
+    purchaseTracked.current = true;
+
+    const eventCurrency = currency || 'SAR';
+    const firstItem = orderData?.items?.[0];
+
+    // Meta Pixel + CAPI bridge — the SAME orderId is passed as eventID
+    // so Meta merges browser + server events into one conversion.
+    if (!fbAlreadySent) {
+      try {
+        localStorage.setItem(fbKey, '1');
+      } catch {
+        // ignore — event_id dedup is the real safety net
+      }
+      trackEvent(
+        'Purchase',
+        {
+          value: paidAmount,
+          currency: eventCurrency,
+          order_id: orderId,
+        },
+        { eventId: orderId },
+      );
+    }
+
+    if (!restAlreadySent) {
+      try {
+        localStorage.setItem(restKey, '1');
+      } catch {
+        // ignore — event_id dedup is the real safety net
+      }
+
+      // TikTok Pixel — CompletePayment (browser-side, deduped via orderId)
+      if (firstItem) {
+        ttqPurchase({
+          productId: firstItem.productId || '',
+          productName:
+            firstItem.productName?.en || firstItem.productName?.ar || '',
+          value: paidAmount,
+          currency: eventCurrency,
+          quantity: firstItem.quantity || 1,
+          orderId,
+        });
+      }
+
+      // OpenAI Pixel — order_created (browser-side, deduped via orderId)
+      oaiqPurchase({
+        value: paidAmount,
+        currency: eventCurrency,
+        orderId,
+        productId: firstItem?.productId?.toString(),
+        productName:
+          firstItem?.productName?.en || firstItem?.productName?.ar || '',
+        quantity: firstItem?.quantity || 1,
+      });
+
+      // Snapchat Conversions API (client bridge) — PURCHASE, deduped via orderId
+      if (firstItem) {
+        snapPurchase({
+          productId: firstItem.productId?.toString() || '',
+          productName:
+            firstItem.productName?.en || firstItem.productName?.ar || '',
+          value: paidAmount,
+          currency: eventCurrency,
+          quantity: firstItem.quantity || 1,
+          orderId,
+        });
+      }
+
+      // GTM dataLayer — purchase event (GA4 ecommerce format)
+      gtmPurchase({
+        transaction_id: orderId,
+        value: paidAmount,
+        currency: eventCurrency,
+        items: [
+          {
+            item_id: firstItem?.productId?.toString() || '',
+            item_name:
+              firstItem?.productName?.en || firstItem?.productName?.ar || '',
+            quantity: firstItem?.quantity || 1,
+            price: paidAmount / (firstItem?.quantity || 1),
+          },
+        ],
+      });
+    }
+  }, [isSuccessLike, orderData, amount, currency, displayOrderNumber]);
 
   const statusConfig: Record<DisplayStatus, StatusConfigEntry> = {
     success: {

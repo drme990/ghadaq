@@ -21,6 +21,9 @@ import { getCountryByCode } from '@/lib/countries';
 import { isExecutionDateKey } from '@/lib/reservation-fields';
 import { PageLoading } from '@/components/ui/loading';
 import { trackEvent } from '@/lib/fb-pixel';
+import { ttqInitiateCheckout } from '@/lib/tiktok-pixel';
+import { gtmBeginCheckout } from '@/lib/gtm';
+import { collectAttribution } from '@/lib/attribution';
 import { getStoredReferral } from '@/components/providers/referral-provider';
 import {
   clearClientAuthCookie,
@@ -182,6 +185,10 @@ function CheckoutContent() {
     useState(false);
   const [customAmount, setCustomAmount] = useState<number>(0);
   const checkoutTracked = useRef(false);
+  // Event id shared between the browser InitiateCheckout and the
+  // server-side CAPI InitiateCheckout (sent in the checkout request)
+  // so Meta merges them into one event instead of double-counting.
+  const initiateCheckoutEventId = useRef<string | null>(null);
 
   // Coupon
   const [couponCode, setCouponCode] = useState('');
@@ -777,13 +784,43 @@ function CheckoutContent() {
 
     const trackingSize = product.sizes?.[sizeIndex ?? 0];
     const price = trackingSize?.resolvedPrices?.[0]?.amount ?? 0;
-    trackEvent('InitiateCheckout', {
-      content_ids: [product._id],
-      content_type: 'product',
-      content_name: isRTL ? product.name.ar : product.name.en,
+    const eventId =
+      crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
+    initiateCheckoutEventId.current = eventId;
+    trackEvent(
+      'InitiateCheckout',
+      {
+        content_ids: [product._id],
+        content_type: 'product',
+        content_name: isRTL ? product.name.ar : product.name.en,
+        value: price * quantity,
+        currency: trackingSize?.resolvedPrices?.[0]?.currencyCode || product.baseCurrency || 'SAR',
+        num_items: quantity,
+      },
+      { eventId },
+    );
+
+    // TikTok Pixel — InitiateCheckout
+    ttqInitiateCheckout({
+      productId: product._id,
+      productName: isRTL ? product.name.ar : product.name.en,
       value: price * quantity,
       currency: trackingSize?.resolvedPrices?.[0]?.currencyCode || product.baseCurrency || 'SAR',
-      num_items: quantity,
+      quantity,
+    });
+
+    // GTM — begin_checkout
+    gtmBeginCheckout({
+      currency: trackingSize?.resolvedPrices?.[0]?.currencyCode || product.baseCurrency || 'SAR',
+      value: price * quantity,
+      items: [
+        {
+          item_id: product._id,
+          item_name: isRTL ? product.name.ar : product.name.en,
+          quantity,
+          price,
+        },
+      ],
     });
   }, [product, sizeIndex, quantity, isRTL]);
 
@@ -1224,6 +1261,8 @@ function CheckoutContent() {
               .filter(Boolean)
               .map((addOnId) => ({ addOnId, quantity: 1 }))
             : undefined,
+          attribution: collectAttribution(),
+          initiateCheckoutEventId: initiateCheckoutEventId.current ?? undefined,
         }),
       });
 

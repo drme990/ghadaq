@@ -11,6 +11,7 @@ import React, {
 import { Country } from '@/types/Country';
 import { hasClientAuthCookie } from '@/lib/client-auth-cookie';
 import { COUNTRIES } from '@/lib/countries';
+import { getSession } from '@/lib/session';
 
 type CurrencyInfo = {
   code: string;
@@ -42,6 +43,8 @@ const STORAGE_KEY = 'ghadaq-selected-currency';
 const STORAGE_SOURCE_KEY = 'ghadaq-selected-currency-source';
 const SESSION_COUNTRY_KEY = 'detected-country';
 const FALLBACK_COUNTRY_CODE = 'OT';
+const COUNTRIES_CACHE_PREFIX = 'ghadaq-countries-';
+const COUNTRIES_CACHE_TTL_MS = 5 * 60 * 1000;
 type CurrencySelectionSource = 'auto' | 'manual';
 
 type SavedCurrency = {
@@ -62,6 +65,37 @@ function writeSessionCountry(code: string): void {
   if (typeof window === 'undefined') return;
   try {
     sessionStorage.setItem(SESSION_COUNTRY_KEY, code);
+  } catch {
+    // ignore
+  }
+}
+
+function readCachedCountries(viewerCode: string): Country[] | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(COUNTRIES_CACHE_PREFIX + viewerCode);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { at?: number; data?: Country[] };
+    if (
+      typeof parsed.at !== 'number' ||
+      Date.now() - parsed.at > COUNTRIES_CACHE_TTL_MS ||
+      !Array.isArray(parsed.data)
+    ) {
+      return null;
+    }
+    return parsed.data;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedCountries(viewerCode: string, data: Country[]): void {
+  if (typeof window === 'undefined') return;
+  try {
+    sessionStorage.setItem(
+      COUNTRIES_CACHE_PREFIX + viewerCode,
+      JSON.stringify({ at: Date.now(), data }),
+    );
   } catch {
     // ignore
   }
@@ -243,16 +277,9 @@ export function CurrencyProvider({
         let userDetectedCountry: string | null = null;
 
         if (hasClientAuthCookie()) {
-          try {
-            const res = await fetch('/api/auth/ghadaq/session', { cache: 'no-store' });
-            if (res.ok) {
-              const data = await res.json();
-              if (data?.data?.detectedCountry) {
-                userDetectedCountry = normalizeCountryCode(data.data.detectedCountry);
-              }
-            }
-          } catch {
-            // ignore
+          const { user } = await getSession();
+          if (user?.detectedCountry) {
+            userDetectedCountry = normalizeCountryCode(user.detectedCountry);
           }
         }
 
@@ -281,11 +308,19 @@ export function CurrencyProvider({
           resolvedViewerCountryCode,
         );
 
-        const res = await fetch(countriesUrl.toString(), { cache: 'no-store' });
-        const data = await res.json();
-        if (!data.success || !data.data) return;
-
-        const visibleCountries: Country[] = data.data;
+        const cachedCountries = readCachedCountries(resolvedViewerCountryCode);
+        let visibleCountries: Country[];
+        if (cachedCountries) {
+          visibleCountries = cachedCountries;
+        } else {
+          const res = await fetch(countriesUrl.toString(), {
+            cache: 'no-store',
+          });
+          const data = await res.json();
+          if (!data.success || !data.data) return;
+          visibleCountries = data.data;
+          writeCachedCountries(resolvedViewerCountryCode, visibleCountries);
+        }
         setCountries(visibleCountries);
 
         const availableCurrencies: CurrencyInfo[] = visibleCountries.map(

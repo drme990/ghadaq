@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Product } from '@/types/Product';
 import { useCurrency } from '@/hooks/currency-hook';
+import { fetchProducts } from '@/lib/fetch-products';
 import LandingProductsWithFilter from './products-with-filter';
 import Button from '@/components/ui/button';
 
@@ -48,17 +49,13 @@ export default function LandingProductsClient({
     if (!homeCountryCode) return;
 
     let cancelled = false;
-    const params = new URLSearchParams({ platform });
-    if (homeCountryCode) params.set('viewerCountryCode', homeCountryCode);
+    const params: Record<string, string> = { platform };
+    if (homeCountryCode) params.viewerCountryCode = homeCountryCode;
 
-    fetch(`/api/products?${params.toString()}`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (!cancelled && data.success) {
-          setProducts(data.data.products || []);
-        }
+    fetchProducts(params)
+      .then((list) => {
+        if (!cancelled) setProducts(list);
       })
-      .catch((e) => console.error('Error fetching products:', e))
       .finally(() => {
         if (!cancelled) setLoading(false);
       });
